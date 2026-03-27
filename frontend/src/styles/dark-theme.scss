@@ -1,0 +1,62 @@
+// 暗黑主题变量
+:root {
+  // 基础颜色
+  --pdi-bg-primary: #0f172a;
+  --pdi-bg-secondary: #1e293b;
+  --pdi-bg-tertiary: #334155;
+
+  // 导航栏
+  --pdi-nav-bg: #1a1a2e;
+  --pdi-nav-text: #94a3b8;
+  --pdi-nav-active: #3b82f6;
+
+  // 主色调
+  --pdi-primary: #3b82f6;
+  --pdi-primary-light: #60a5fa;
+  --pdi-primary-dark: #2563eb;
+
+  // 功能色
+  --pdi-success: #22c55e;
+  --pdi-warning: #f97316;
+  --pdi-danger: #ef4444;
+  --pdi-info: #3b82f6;
+
+  // 文字颜色
+  --pdi-text-primary: #f8fafc;
+  --pdi-text-secondary: #e2e8f0;
+  --pdi-text-tertiary: #94a3b8;
+  --pdi-text-muted: #64748b;
+
+  // 边框
+  --pdi-border: #334155;
+  --pdi-border-light: #475569;
+
+  // 阴影
+  --pdi-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --pdi-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+// 覆盖ElementPlus变量
+html.dark {
+  --el-bg-color: var(--pdi-bg-primary);
+  --el-bg-color-page: var(--pdi-bg-primary);
+  --el-bg-color-overlay: var(--pdi-bg-secondary);
+
+  --el-text-color-primary: var(--pdi-text-primary);
+  --el-text-color-regular: var(--pdi-text-secondary);
+  --el-text-color-secondary: var(--pdi-text-tertiary);
+  --el-text-color-placeholder: var(--pdi-text-muted);
+
+  --el-border-color: var(--pdi-border);
+  --el-border-color-light: var(--pdi-border-light);
+  --el-border-color-darker: var(--pdi-border);
+
+  --el-fill-color: var(--pdi-bg-secondary);
+  --el-fill-color-light: var(--pdi-bg-tertiary);
+  --el-fill-color-blank: var(--pdi-bg-secondary);
+
+  --el-color-primary: var(--pdi-primary);
+  --el-color-success: var(--pdi-success);
+  --el-color-warning: var(--pdi-warning);
+  --el-color-danger: var(--pdi-danger);
+}

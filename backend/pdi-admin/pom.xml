@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.pdi</groupId>
+        <artifactId>pdi-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pdi-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>pdi-admin</artifactId>
+    <name>PDI Admin Application</name>
+    <description>PDI智能监测平台 - 管理后台启动模块</description>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- API -->
+        <dependency>
+            <groupId>com.pdi</groupId>
+            <artifactId>pdi-api</artifactId>
+        </dependency>
+
+        <!-- Receiver -->
+        <dependency>
+            <groupId>com.pdi</groupId>
+            <artifactId>pdi-receiver</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.pdi.admin.PdiAdminApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
