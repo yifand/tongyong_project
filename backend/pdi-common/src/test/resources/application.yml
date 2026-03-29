@@ -1,0 +1,28 @@
+
+# 测试环境配置
+spring:
+  application:
+    name: pdi-common-test
+
+  # JPA配置
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+
+  # 数据源配置（使用H2内存数据库进行测试）
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+# 日志配置
+logging:
+  level:
+    com.vdc.pdi.common: DEBUG
+    org.springframework.security: DEBUG

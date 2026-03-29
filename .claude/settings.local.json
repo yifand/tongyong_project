@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(find . -type f -name *.md -o -name *.pencil -o -name *.json -o -name *.txt -o -name *.pdf)",
-      "Bash(ls -la *.md)"
-    ]
-  }
-}
