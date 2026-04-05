@@ -1,4 +1,3 @@
-
 package com.vdc.pdi.common.enums;
 
 /**
@@ -6,27 +5,18 @@ package com.vdc.pdi.common.enums;
  */
 public enum AlarmStatusEnum implements EnumCode<Integer> {
 
-    /**
-     * 未确认
-     */
-    UNCONFIRMED(0, "未确认"),
-
-    /**
-     * 已确认
-     */
-    CONFIRMED(1, "已确认"),
-
-    /**
-     * 已清除
-     */
-    CLEARED(2, "已清除");
+    UNPROCESSED(0, "未处理", "报警待处理"),
+    PROCESSED(1, "已处理", "报警已确认处理"),
+    FALSE_POSITIVE(2, "误报", "报警被标记为误报");
 
     private final Integer code;
-    private final String message;
+    private final String name;
+    private final String description;
 
-    AlarmStatusEnum(Integer code, String message) {
+    AlarmStatusEnum(Integer code, String name, String description) {
         this.code = code;
-        this.message = message;
+        this.name = name;
+        this.description = description;
     }
 
     @Override
@@ -36,32 +26,33 @@ public enum AlarmStatusEnum implements EnumCode<Integer> {
 
     @Override
     public String getMessage() {
-        return message;
+        return name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     /**
      * 根据编码获取枚举
      */
     public static AlarmStatusEnum fromCode(Integer code) {
-        for (AlarmStatusEnum status : values()) {
-            if (status.code.equals(code)) {
-                return status;
+        for (AlarmStatusEnum value : values()) {
+            if (value.getCode().equals(code)) {
+                return value;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Invalid alarm status code: " + code);
     }
 
     /**
-     * 是否已确认
+     * 是否已处理（包含已处理和误报）
      */
-    public boolean isConfirmed() {
-        return this == CONFIRMED || this == CLEARED;
-    }
-
-    /**
-     * 是否已清除
-     */
-    public boolean isCleared() {
-        return this == CLEARED;
+    public boolean isProcessed() {
+        return this == PROCESSED || this == FALSE_POSITIVE;
     }
 }

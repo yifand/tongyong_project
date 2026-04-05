@@ -1,4 +1,3 @@
-
 package com.vdc.pdi.common.enums;
 
 import org.junit.jupiter.api.Test;
@@ -12,33 +11,34 @@ class BusinessEnumsTest {
 
     @Test
     void testSiteEnum() {
-        assertEquals("变电站", SiteEnum.SUBSTATION.getMessage());
-        assertEquals(1, SiteEnum.SUBSTATION.getCode());
-        assertEquals(SiteEnum.SUBSTATION, SiteEnum.fromCode(1));
-        assertNull(SiteEnum.fromCode(999));
+        assertEquals("金桥", SiteEnum.JINQIAO.getMessage());
+        assertEquals(1, SiteEnum.JINQIAO.getCode());
+        assertEquals("JQ", SiteEnum.JINQIAO.getShortCode());
+        assertEquals(SiteEnum.JINQIAO, SiteEnum.fromCode(1));
+        assertEquals(SiteEnum.KAIDI, SiteEnum.fromShortCode("KD"));
+        assertThrows(IllegalArgumentException.class, () -> SiteEnum.fromCode(999));
     }
 
     @Test
     void testAlarmTypeEnum() {
-        assertEquals("越限告警", AlarmTypeEnum.THRESHOLD.getMessage());
-        assertEquals(1, AlarmTypeEnum.THRESHOLD.getCode());
-        assertEquals(AlarmTypeEnum.COMMUNICATION, AlarmTypeEnum.fromCode(3));
-        assertNull(AlarmTypeEnum.fromCode(999));
+        assertEquals("抽烟", AlarmTypeEnum.SMOKE.getMessage());
+        assertEquals(0, AlarmTypeEnum.SMOKE.getCode());
+        assertEquals("抽烟行为检测", AlarmTypeEnum.SMOKE.getDescription());
+        assertEquals(AlarmTypeEnum.PDI_VIOLATION, AlarmTypeEnum.fromCode(1));
+        assertThrows(IllegalArgumentException.class, () -> AlarmTypeEnum.fromCode(999));
     }
 
     @Test
     void testAlarmStatusEnum() {
-        assertEquals(0, AlarmStatusEnum.UNCONFIRMED.getCode());
-        assertEquals(1, AlarmStatusEnum.CONFIRMED.getCode());
-        assertEquals(2, AlarmStatusEnum.CLEARED.getCode());
+        assertEquals(0, AlarmStatusEnum.UNPROCESSED.getCode());
+        assertEquals(1, AlarmStatusEnum.PROCESSED.getCode());
+        assertEquals(2, AlarmStatusEnum.FALSE_POSITIVE.getCode());
 
-        assertFalse(AlarmStatusEnum.UNCONFIRMED.isConfirmed());
-        assertTrue(AlarmStatusEnum.CONFIRMED.isConfirmed());
-        assertTrue(AlarmStatusEnum.CLEARED.isConfirmed());
+        assertFalse(AlarmStatusEnum.UNPROCESSED.isProcessed());
+        assertTrue(AlarmStatusEnum.PROCESSED.isProcessed());
+        assertTrue(AlarmStatusEnum.FALSE_POSITIVE.isProcessed());
 
-        assertFalse(AlarmStatusEnum.UNCONFIRMED.isCleared());
-        assertFalse(AlarmStatusEnum.CONFIRMED.isCleared());
-        assertTrue(AlarmStatusEnum.CLEARED.isCleared());
+        assertThrows(IllegalArgumentException.class, () -> AlarmStatusEnum.fromCode(999));
     }
 
     @Test
@@ -54,16 +54,17 @@ class BusinessEnumsTest {
 
     @Test
     void testStateCodeEnum() {
-        assertEquals(0, StateCodeEnum.NORMAL.getCode());
-        assertEquals(1, StateCodeEnum.COMM_ERROR.getCode());
+        assertEquals(1, StateCodeEnum.S1.getCode());
+        assertEquals(3, StateCodeEnum.S3.getCode());
+        assertEquals("空闲", StateCodeEnum.S1.getMessage());
 
-        assertTrue(StateCodeEnum.NORMAL.isValid());
-        assertTrue(StateCodeEnum.MANUAL_SET.isValid());
-        assertFalse(StateCodeEnum.COMM_ERROR.isValid());
+        assertEquals(StateCodeEnum.S1, StateCodeEnum.fromState(0, 0, 0));
+        assertEquals(StateCodeEnum.S3, StateCodeEnum.fromState(0, 1, 0));
+        assertEquals(StateCodeEnum.S5, StateCodeEnum.fromState(1, 0, 0));
+        assertEquals(StateCodeEnum.S7, StateCodeEnum.fromState(1, 1, 0));
+        assertEquals(StateCodeEnum.S8, StateCodeEnum.fromState(1, 1, 1));
 
-        assertTrue(StateCodeEnum.COMM_ERROR.isError());
-        assertTrue(StateCodeEnum.INVALID_DATA.isError());
-        assertFalse(StateCodeEnum.NORMAL.isError());
+        assertThrows(IllegalArgumentException.class, () -> StateCodeEnum.fromState(0, 0, 1));
     }
 
     @Test
@@ -81,13 +82,11 @@ class BusinessEnumsTest {
 
     @Test
     void testChannelTypeEnum() {
-        assertEquals(1, ChannelTypeEnum.SERIAL.getCode());
-        assertEquals(2, ChannelTypeEnum.ETHERNET.getCode());
-        assertEquals(3, ChannelTypeEnum.WIRELESS_4G.getCode());
-
-        assertTrue(ChannelTypeEnum.WIRELESS_4G.isWireless());
-        assertTrue(ChannelTypeEnum.LORA.isWireless());
-        assertTrue(ChannelTypeEnum.ETHERNET.isWired());
-        assertFalse(ChannelTypeEnum.ETHERNET.isWireless());
+        assertEquals(0, ChannelTypeEnum.VIDEO_STREAM.getCode());
+        assertEquals(1, ChannelTypeEnum.SNAPSHOT.getCode());
+        assertEquals("实时视频流", ChannelTypeEnum.VIDEO_STREAM.getDescription());
+        assertEquals("抓拍图片", ChannelTypeEnum.SNAPSHOT.getDescription());
+        assertEquals(ChannelTypeEnum.SNAPSHOT, ChannelTypeEnum.fromCode(1));
+        assertThrows(IllegalArgumentException.class, () -> ChannelTypeEnum.fromCode(999));
     }
 }

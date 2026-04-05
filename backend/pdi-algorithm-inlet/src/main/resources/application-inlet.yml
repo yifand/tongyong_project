@@ -1,0 +1,8 @@
+# 算法数据入口模块配置
+algorithm-inlet:
+  idempotency:
+    window-minutes: 5
+    expire-minutes: 10
+  auth:
+    cache-expire-minutes: 30
+    secret-key: ${ALGORITHM_INLET_SECRET_KEY:pdi-algorithm-inlet-secret-key-2026}

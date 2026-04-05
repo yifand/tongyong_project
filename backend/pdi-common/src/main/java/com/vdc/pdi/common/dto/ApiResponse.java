@@ -64,8 +64,29 @@ public class ApiResponse<T> {
     /**
      * 成功响应（自定义消息）
      */
+    public static <T> ApiResponse<T> success(String message) {
+        return new ApiResponse<>(ResultCode.SUCCESS.getCode(), message, null);
+    }
+
+    /**
+     * 成功响应（自定义消息+数据）
+     */
     public static <T> ApiResponse<T> success(String message, T data) {
         return new ApiResponse<>(ResultCode.SUCCESS.getCode(), message, data);
+    }
+
+    /**
+     * 失败响应（默认业务错误）
+     */
+    public static <T> ApiResponse<T> error() {
+        return error(ResultCode.BIZ_ERROR);
+    }
+
+    /**
+     * 失败响应（自定义消息，默认业务错误码）
+     */
+    public static <T> ApiResponse<T> error(String message) {
+        return new ApiResponse<>(ResultCode.BIZ_ERROR.getCode(), message, null);
     }
 
     /**

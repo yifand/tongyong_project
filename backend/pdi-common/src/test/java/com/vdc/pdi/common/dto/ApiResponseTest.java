@@ -23,8 +23,8 @@ class ApiResponseTest {
 
     @Test
     void testSuccessWithData() {
-        String testData = "test data";
-        ApiResponse<String> response = ApiResponse.success(testData);
+        Integer testData = 42;
+        ApiResponse<Integer> response = ApiResponse.success(testData);
 
         assertNotNull(response);
         assertEquals(200, response.getCode());
@@ -48,7 +48,7 @@ class ApiResponseTest {
 
         assertNotNull(response);
         assertEquals(600, response.getCode());
-        assertEquals("操作失败", response.getMessage());
+        assertEquals("业务处理失败", response.getMessage());
     }
 
     @Test
@@ -83,7 +83,7 @@ class ApiResponseTest {
 
     @Test
     void testSettersAndGetters() {
-        ApiResponse<String> response = new ApiResponse<>();
+        ApiResponse<String> response = ApiResponse.success();
         response.setCode(200);
         response.setMessage("测试");
         response.setData("data");

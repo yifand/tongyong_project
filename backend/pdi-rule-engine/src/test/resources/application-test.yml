@@ -1,0 +1,41 @@
+# 测试环境配置
+spring:
+  application:
+    name: pdi-rule-engine-test
+
+  # 禁用数据源自动配置（用于单元测试）
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # 禁用Flyway
+  flyway:
+    enabled: false
+
+  # 禁用SQL脚本初始化
+  sql:
+    init:
+      mode: never
+
+# 规则引擎配置
+rule-engine:
+  alarm:
+    critical-ratio: 0.9
+  state-machine:
+    idle-timeout: 30
+
+# 日志配置
+logging:
+  level:
+    com.vdc.pdi.ruleengine: DEBUG
+    org.springframework: WARN

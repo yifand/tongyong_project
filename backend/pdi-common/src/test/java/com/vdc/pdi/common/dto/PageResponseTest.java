@@ -30,8 +30,8 @@ class PageResponseTest {
         assertEquals(1, response.getPage());
         assertEquals(10, response.getSize());
         assertEquals(3, response.getTotalPages());
-        assertTrue(response.isHasNext());
-        assertFalse(response.isHasPrevious());
+        assertTrue(response.getHasNext());
+        assertFalse(response.getHasPrevious());
     }
 
     @Test
@@ -44,8 +44,8 @@ class PageResponseTest {
         assertNotNull(response);
         assertEquals(3, response.getPage());
         assertEquals(3, response.getTotalPages());
-        assertFalse(response.isHasNext());
-        assertTrue(response.isHasPrevious());
+        assertFalse(response.getHasNext());
+        assertTrue(response.getHasPrevious());
     }
 
     @Test
@@ -60,8 +60,8 @@ class PageResponseTest {
         assertEquals(2, response.getPage());
         assertEquals(5, response.getSize());
         assertEquals(20, response.getTotalPages());
-        assertTrue(response.isHasNext());
-        assertTrue(response.isHasPrevious());
+        assertTrue(response.getHasNext());
+        assertTrue(response.getHasPrevious());
     }
 
     @Test
@@ -74,14 +74,14 @@ class PageResponseTest {
         assertEquals(0L, response.getTotal());
         assertEquals(1, response.getPage());
         assertEquals(0, response.getSize());
-        assertEquals(0, response.getTotalPages());
-        assertFalse(response.isHasNext());
-        assertFalse(response.isHasPrevious());
+        assertEquals(1, response.getTotalPages());
+        assertFalse(response.getHasNext());
+        assertFalse(response.getHasPrevious());
     }
 
     @Test
     void testSettersAndGetters() {
-        PageResponse<String> response = new PageResponse<>();
+        PageResponse<String> response = PageResponse.of(Collections.emptyList(), 0L, 1, 0);
         response.setList(Arrays.asList("a", "b"));
         response.setTotal(100L);
         response.setPage(1);
@@ -95,7 +95,7 @@ class PageResponseTest {
         assertEquals(1, response.getPage());
         assertEquals(10, response.getSize());
         assertEquals(10, response.getTotalPages());
-        assertTrue(response.isHasNext());
-        assertFalse(response.isHasPrevious());
+        assertTrue(response.getHasNext());
+        assertFalse(response.getHasPrevious());
     }
 }

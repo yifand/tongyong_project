@@ -1,47 +1,21 @@
-
 package com.vdc.pdi.common.enums;
 
 /**
- * 站点类型枚举
+ * 站点枚举
  */
 public enum SiteEnum implements EnumCode<Integer> {
 
-    /**
-     * 变电站
-     */
-    SUBSTATION(1, "变电站"),
-
-    /**
-     * 开闭所
-     */
-    SWITCH_STATION(2, "开闭所"),
-
-    /**
-     * 配电室
-     */
-    DISTRIBUTION_ROOM(3, "配电室"),
-
-    /**
-     * 环网柜
-     */
-    RING_MAIN_UNIT(4, "环网柜"),
-
-    /**
-     * 箱变
-     */
-    BOX_SUBSTATION(5, "箱变"),
-
-    /**
-     * 柱上变压器
-     */
-    POLE_MOUNTED_TRANSFORMER(6, "柱上变压器");
+    JINQIAO(1, "金桥", "JQ"),
+    KAIDI(2, "凯迪", "KD");
 
     private final Integer code;
-    private final String message;
+    private final String name;
+    private final String shortCode;
 
-    SiteEnum(Integer code, String message) {
+    SiteEnum(Integer code, String name, String shortCode) {
         this.code = code;
-        this.message = message;
+        this.name = name;
+        this.shortCode = shortCode;
     }
 
     @Override
@@ -51,18 +25,38 @@ public enum SiteEnum implements EnumCode<Integer> {
 
     @Override
     public String getMessage() {
-        return message;
+        return name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getShortCode() {
+        return shortCode;
     }
 
     /**
      * 根据编码获取枚举
      */
     public static SiteEnum fromCode(Integer code) {
-        for (SiteEnum site : values()) {
-            if (site.code.equals(code)) {
-                return site;
+        for (SiteEnum value : values()) {
+            if (value.getCode().equals(code)) {
+                return value;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Invalid site code: " + code);
+    }
+
+    /**
+     * 根据短编码获取枚举
+     */
+    public static SiteEnum fromShortCode(String shortCode) {
+        for (SiteEnum value : values()) {
+            if (value.getShortCode().equalsIgnoreCase(shortCode)) {
+                return value;
+            }
+        }
+        throw new IllegalArgumentException("Invalid site shortCode: " + shortCode);
     }
 }

@@ -1,68 +1,48 @@
-
 package com.vdc.pdi.common.enums;
 
 /**
- * 状态码类型枚举
- * 用于实时数据、历史数据等状态标识
+ * PDI状态码枚举
+ * 基于状态三元组 (door_open, person_present, entering_exiting)
  */
 public enum StateCodeEnum implements EnumCode<Integer> {
 
     /**
-     * 正常
+     * S1: 门关 + 无人 + 未进出 (空闲状态)
      */
-    NORMAL(0, "正常"),
+    S1(1, "空闲", 0, 0, 0),
 
     /**
-     * 通信故障
+     * S3: 门关 + 有人 + 未进出 (人员在车内)
      */
-    COMM_ERROR(1, "通信故障"),
+    S3(3, "门关有人", 0, 1, 0),
 
     /**
-     * 数据无效
+     * S5: 门开 + 无人 + 未进出 (人员已离开)
      */
-    INVALID_DATA(2, "数据无效"),
+    S5(5, "门开无人", 1, 0, 0),
 
     /**
-     * 人工置数
+     * S7: 门开 + 有人 + 未进出 (准备进出)
      */
-    MANUAL_SET(3, "人工置数"),
+    S7(7, "门开有人", 1, 1, 0),
 
     /**
-     * 数据溢出
+     * S8: 门开 + 有人 + 进出中 (正在进出)
      */
-    OVERFLOW(4, "数据溢出"),
-
-    /**
-     * 工程单位溢出
-     */
-    ENG_OVERFLOW(5, "工程单位溢出"),
-
-    /**
-     * 原始数据溢出
-     */
-    RAW_OVERFLOW(6, "原始数据溢出"),
-
-    /**
-     * 遥信变位
-     */
-    STATUS_CHANGE(7, "遥信变位"),
-
-    /**
-     * 检修状态
-     */
-    MAINTENANCE(8, "检修状态"),
-
-    /**
-     * 备用
-     */
-    RESERVED(9, "备用");
+    S8(8, "进出中", 1, 1, 1);
 
     private final Integer code;
-    private final String message;
+    private final String description;
+    private final int doorOpen;
+    private final int personPresent;
+    private final int enteringExiting;
 
-    StateCodeEnum(Integer code, String message) {
+    StateCodeEnum(Integer code, String description, int doorOpen, int personPresent, int enteringExiting) {
         this.code = code;
-        this.message = message;
+        this.description = description;
+        this.doorOpen = doorOpen;
+        this.personPresent = personPresent;
+        this.enteringExiting = enteringExiting;
     }
 
     @Override
@@ -72,33 +52,50 @@ public enum StateCodeEnum implements EnumCode<Integer> {
 
     @Override
     public String getMessage() {
-        return message;
+        return description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getDoorOpen() {
+        return doorOpen;
+    }
+
+    public int getPersonPresent() {
+        return personPresent;
+    }
+
+    public int getEnteringExiting() {
+        return enteringExiting;
     }
 
     /**
      * 根据编码获取枚举
      */
     public static StateCodeEnum fromCode(Integer code) {
-        for (StateCodeEnum state : values()) {
-            if (state.code.equals(code)) {
-                return state;
+        for (StateCodeEnum value : values()) {
+            if (value.getCode().equals(code)) {
+                return value;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Invalid state code: " + code);
     }
 
     /**
-     * 是否为有效数据
+     * 根据状态三元组获取枚举
      */
-    public boolean isValid() {
-        return this == NORMAL || this == MANUAL_SET || this == STATUS_CHANGE;
-    }
-
-    /**
-     * 是否为故障状态
-     */
-    public boolean isError() {
-        return this == COMM_ERROR || this == INVALID_DATA || this == OVERFLOW
-                || this == ENG_OVERFLOW || this == RAW_OVERFLOW;
+    public static StateCodeEnum fromState(int doorOpen, int personPresent, int enteringExiting) {
+        for (StateCodeEnum value : values()) {
+            if (value.doorOpen == doorOpen
+                    && value.personPresent == personPresent
+                    && value.enteringExiting == enteringExiting) {
+                return value;
+            }
+        }
+        throw new IllegalArgumentException(
+                String.format("Invalid state: door=%d, person=%d, entering=%d",
+                        doorOpen, personPresent, enteringExiting));
     }
 }

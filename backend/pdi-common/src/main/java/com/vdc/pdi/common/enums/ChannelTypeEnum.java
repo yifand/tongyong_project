@@ -1,53 +1,21 @@
-
 package com.vdc.pdi.common.enums;
 
 /**
  * 通道类型枚举
- * 用于设备通信通道
  */
 public enum ChannelTypeEnum implements EnumCode<Integer> {
 
-    /**
-     * 串口
-     */
-    SERIAL(1, "串口"),
-
-    /**
-     * 以太网
-     */
-    ETHERNET(2, "以太网"),
-
-    /**
-     * 无线4G
-     */
-    WIRELESS_4G(3, "无线4G"),
-
-    /**
-     * 无线5G
-     */
-    WIRELESS_5G(4, "无线5G"),
-
-    /**
-     * LoRa
-     */
-    LORA(5, "LoRa"),
-
-    /**
-     * NB-IoT
-     */
-    NB_IOT(6, "NB-IoT"),
-
-    /**
-     * 光纤
-     */
-    FIBER(7, "光纤");
+    VIDEO_STREAM(0, "视频流", "实时视频流"),
+    SNAPSHOT(1, "抓拍机", "抓拍图片");
 
     private final Integer code;
-    private final String message;
+    private final String name;
+    private final String description;
 
-    ChannelTypeEnum(Integer code, String message) {
+    ChannelTypeEnum(Integer code, String name, String description) {
         this.code = code;
-        this.message = message;
+        this.name = name;
+        this.description = description;
     }
 
     @Override
@@ -57,32 +25,26 @@ public enum ChannelTypeEnum implements EnumCode<Integer> {
 
     @Override
     public String getMessage() {
-        return message;
+        return name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     /**
      * 根据编码获取枚举
      */
     public static ChannelTypeEnum fromCode(Integer code) {
-        for (ChannelTypeEnum type : values()) {
-            if (type.code.equals(code)) {
-                return type;
+        for (ChannelTypeEnum value : values()) {
+            if (value.getCode().equals(code)) {
+                return value;
             }
         }
-        return null;
-    }
-
-    /**
-     * 是否为无线通道
-     */
-    public boolean isWireless() {
-        return this == WIRELESS_4G || this == WIRELESS_5G || this == LORA || this == NB_IOT;
-    }
-
-    /**
-     * 是否为有线通道
-     */
-    public boolean isWired() {
-        return this == SERIAL || this == ETHERNET || this == FIBER;
+        throw new IllegalArgumentException("Invalid channel type code: " + code);
     }
 }

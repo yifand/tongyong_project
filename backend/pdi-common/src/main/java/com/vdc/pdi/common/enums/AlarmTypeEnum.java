@@ -1,4 +1,3 @@
-
 package com.vdc.pdi.common.enums;
 
 /**
@@ -6,37 +5,17 @@ package com.vdc.pdi.common.enums;
  */
 public enum AlarmTypeEnum implements EnumCode<Integer> {
 
-    /**
-     * 越限告警
-     */
-    THRESHOLD(1, "越限告警"),
-
-    /**
-     * 变位告警
-     */
-    STATUS_CHANGE(2, "变位告警"),
-
-    /**
-     * 通信告警
-     */
-    COMMUNICATION(3, "通信告警"),
-
-    /**
-     * 设备告警
-     */
-    DEVICE(4, "设备告警"),
-
-    /**
-     * 安全告警
-     */
-    SECURITY(5, "安全告警");
+    SMOKE(0, "抽烟", "抽烟行为检测"),
+    PDI_VIOLATION(1, "PDI违规", "PDI作业时长不达标");
 
     private final Integer code;
-    private final String message;
+    private final String name;
+    private final String description;
 
-    AlarmTypeEnum(Integer code, String message) {
+    AlarmTypeEnum(Integer code, String name, String description) {
         this.code = code;
-        this.message = message;
+        this.name = name;
+        this.description = description;
     }
 
     @Override
@@ -46,18 +25,26 @@ public enum AlarmTypeEnum implements EnumCode<Integer> {
 
     @Override
     public String getMessage() {
-        return message;
+        return name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     /**
      * 根据编码获取枚举
      */
     public static AlarmTypeEnum fromCode(Integer code) {
-        for (AlarmTypeEnum type : values()) {
-            if (type.code.equals(code)) {
-                return type;
+        for (AlarmTypeEnum value : values()) {
+            if (value.getCode().equals(code)) {
+                return value;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Invalid alarm type code: " + code);
     }
 }

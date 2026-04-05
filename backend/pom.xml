@@ -24,6 +24,8 @@
         <spring-boot.version>3.2.4</spring-boot.version>
         <querydsl.version>5.0.0</querydsl.version>
         <springdoc.version>2.3.0</springdoc.version>
+        <lombok.version>1.18.30</lombok.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
 
         <!-- 模块版本 -->
         <pdi-common.version>1.0.0-SNAPSHOT</pdi-common.version>
@@ -32,15 +34,20 @@
         <pdi-device-management.version>1.0.0-SNAPSHOT</pdi-device-management.version>
         <pdi-system-config.version>1.0.0-SNAPSHOT</pdi-system-config.version>
         <pdi-algorithm-inlet.version>1.0.0-SNAPSHOT</pdi-algorithm-inlet.version>
-        <pdi-alarm-center.version>1.0.0-SNAPSHOT</pdi-alarm-center.version>
         <pdi-behavior-archive.version>1.0.0-SNAPSHOT</pdi-behavior-archive.version>
-        <pdi-log-management.version>1.0.0-SNAPSHOT</pdi-log-management.version>
+        <pdi-alarm-center.version>1.0.0-SNAPSHOT</pdi-alarm-center.version>
         <pdi-start.version>1.0.0-SNAPSHOT</pdi-start.version>
     </properties>
 
     <modules>
         <module>pdi-common</module>
-        <!-- 其他模块后续添加 -->
+        <module>pdi-rule-engine</module>
+        <module>pdi-auth-management</module>
+        <module>pdi-device-management</module>
+        <module>pdi-system-config</module>
+        <module>pdi-algorithm-inlet</module>
+        <module>pdi-behavior-archive</module>
+        <module>pdi-alarm-center</module>
     </modules>
 
     <dependencyManagement>

@@ -1,0 +1,56 @@
+# 测试环境配置
+spring:
+  application:
+    name: pdi-behavior-archive-test
+
+  # 允许Bean定义覆盖（解决JPA审计冲突）
+  main:
+    allow-bean-definition-overriding: true
+
+  # H2内存数据库配置
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # SQL初始化配置 - 禁用data.sql执行
+  sql:
+    init:
+      mode: never
+      data-locations:
+
+  # JPA配置
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
+  # H2控制台（仅在测试环境启用）
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# 日志配置
+logging:
+  level:
+    com.vdc.pdi.behaviorarchive: DEBUG
+    org.springframework.jdbc: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# PDI档案模块配置
+pdi:
+  archive:
+    download:
+      buffer-size: 8192
+      max-images-per-package: 100
+    timeline:
+      max-nodes-per-archive: 50

@@ -1,0 +1,44 @@
+# 算法数据入口模块测试配置
+spring:
+  application:
+    name: pdi-algorithm-inlet-test
+
+  # H2内存数据库配置
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+
+  # 禁用Flyway
+  flyway:
+    enabled: false
+
+  # 禁用SQL初始化
+  sql:
+    init:
+      mode: never
+
+# 算法数据入口配置
+algorithm-inlet:
+  idempotency:
+    window-minutes: 5
+    expire-minutes: 10
+  auth:
+    cache-expire-minutes: 30
+    secret-key: test-secret-key
+
+# 日志配置
+logging:
+  level:
+    com.vdc.pdi.algorithminlet: DEBUG
+    org.springframework.web: WARN
