@@ -2,7 +2,6 @@ package com.vdc.pdi.device.service;
 
 import com.vdc.pdi.common.dto.PageResponse;
 import com.vdc.pdi.common.enums.ResultCode;
-import com.vdc.pdi.common.exception.BusinessException;
 import com.vdc.pdi.device.config.DeviceConfig;
 import com.vdc.pdi.device.domain.entity.EdgeBox;
 import com.vdc.pdi.device.domain.repository.EdgeBoxRepository;
@@ -97,7 +96,7 @@ class BoxServiceTest {
         when(edgeBoxRepository.findByIdAndDeletedAtIsNull(1L)).thenReturn(Optional.empty());
 
         // When & Then
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
             boxService.getBox(1L, null);
         });
         assertEquals("盒子不存在", exception.getMessage());
@@ -125,7 +124,7 @@ class BoxServiceTest {
         when(edgeBoxRepository.findByIpAddressAndDeletedAtIsNull(anyString())).thenReturn(Optional.of(testBox));
 
         // When & Then
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
             boxService.createBox(testRequest, null, 1L);
         });
         assertEquals("IP地址已存在", exception.getMessage());

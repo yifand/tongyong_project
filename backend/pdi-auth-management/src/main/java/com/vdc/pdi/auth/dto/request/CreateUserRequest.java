@@ -1,5 +1,6 @@
 package com.vdc.pdi.auth.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -19,6 +20,14 @@ public class CreateUserRequest {
     @Size(min = 6, max = 100, message = "密码长度必须在6-100之间")
     private String password;
 
+    @Size(max = 50, message = "真实姓名长度不能超过50")
+    private String name;
+
+    /**
+     * @deprecated 使用 {@link #name} 替代
+     */
+    @Deprecated
+    @JsonAlias("name")
     @Size(max = 50, message = "真实姓名长度不能超过50")
     private String realName;
 
@@ -55,12 +64,34 @@ public class CreateUserRequest {
         this.password = password;
     }
 
-    public String getRealName() {
-        return realName;
+    public String getName() {
+        // 兼容旧字段
+        if (name == null && realName != null) {
+            return realName;
+        }
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+        this.realName = name; // 保持同步
+    }
+
+    /**
+     * @deprecated 使用 {@link #getName()} 替代
+     */
+    @Deprecated
+    public String getRealName() {
+        return getName();
+    }
+
+    /**
+     * @deprecated 使用 {@link #setName(String)} 替代
+     */
+    @Deprecated
     public void setRealName(String realName) {
         this.realName = realName;
+        this.name = realName; // 保持同步
     }
 
     public String getEmail() {

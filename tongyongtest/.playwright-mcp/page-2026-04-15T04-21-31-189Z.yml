@@ -1,0 +1,74 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e33]:
+    - complementary [ref=e34]:
+      - generic [ref=e35]: VDC 业务平台
+      - menubar [ref=e36]:
+        - menuitem "首页" [ref=e37] [cursor=pointer]:
+          - img [ref=e39]
+          - generic [ref=e41]: 首页
+        - menuitem "实时预警" [ref=e42] [cursor=pointer]:
+          - img [ref=e44]
+          - generic [ref=e46]: 实时预警
+        - menuitem "历史预警" [ref=e47] [cursor=pointer]:
+          - img [ref=e49]
+          - generic [ref=e51]: 历史预警
+        - menuitem "PDI报表" [ref=e52] [cursor=pointer]:
+          - img [ref=e54]
+          - generic [ref=e56]: PDI报表
+        - menuitem "盒子管理" [ref=e57] [cursor=pointer]:
+          - img [ref=e59]
+          - generic [ref=e63]: 盒子管理
+        - menuitem "通道管理" [ref=e64] [cursor=pointer]:
+          - img [ref=e66]
+          - generic [ref=e68]: 通道管理
+        - menuitem "用户管理" [ref=e69] [cursor=pointer]:
+          - img [ref=e71]
+          - generic [ref=e73]: 用户管理
+        - menuitem "角色管理" [ref=e74] [cursor=pointer]:
+          - img [ref=e76]
+          - generic [ref=e78]: 角色管理
+        - menuitem "规则配置" [ref=e79] [cursor=pointer]:
+          - img [ref=e81]
+          - generic [ref=e86]: 规则配置
+        - menuitem "阈值配置" [ref=e87] [cursor=pointer]:
+          - img [ref=e89]
+          - generic [ref=e91]: 阈值配置
+        - menuitem "通用配置" [ref=e92] [cursor=pointer]:
+          - img [ref=e94]
+          - generic [ref=e96]: 通用配置
+        - menuitem "操作日志" [ref=e97] [cursor=pointer]:
+          - img [ref=e99]
+          - generic [ref=e101]: 操作日志
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e104] [cursor=pointer]:
+          - img [ref=e107]
+          - generic [ref=e109]: 实时预警
+        - generic [ref=e110]:
+          - generic [ref=e111]: admin
+          - button "退出" [ref=e112] [cursor=pointer]:
+            - generic [ref=e113]: 退出
+      - main [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: 在线盒子
+              - generic [ref=e121]: "0"
+            - generic [ref=e124]:
+              - generic [ref=e125]: 离线盒子
+              - generic [ref=e126]: "0"
+            - generic [ref=e129]:
+              - generic [ref=e130]: 今日报警
+              - generic [ref=e131]: "0"
+            - generic [ref=e134]:
+              - generic [ref=e135]: 今日PDI作业
+              - generic [ref=e136]: "0"
+          - generic [ref=e137]:
+            - generic "设备在线状态" [ref=e139]
+            - generic "最近24小时报警趋势" [ref=e145]
+  - alert [ref=e150]:
+    - img [ref=e152]
+    - paragraph [ref=e154]: 登录成功
+  - alert [ref=e155]:
+    - img [ref=e157]
+    - paragraph [ref=e159]: 系统繁忙，请稍后重试

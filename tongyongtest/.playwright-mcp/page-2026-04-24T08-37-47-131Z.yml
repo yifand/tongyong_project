@@ -1,0 +1,122 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [active] [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "设备监控" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e31]: 设备监控
+      - menuitem "盒子管理" [ref=e32] [cursor=pointer]:
+        - img [ref=e34]
+        - generic [ref=e38]: 盒子管理
+      - menuitem "通道管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 通道管理
+      - menuitem "用户管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 用户管理
+      - menuitem "角色管理" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e53]: 角色管理
+      - menuitem "规则配置" [ref=e54] [cursor=pointer]:
+        - img [ref=e56]
+        - generic [ref=e61]: 规则配置
+      - menuitem "阈值配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 阈值配置
+      - menuitem "通用配置" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 通用配置
+      - menuitem "操作日志" [ref=e72] [cursor=pointer]:
+        - img [ref=e74]
+        - generic [ref=e76]: 操作日志
+  - generic [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79] [cursor=pointer]:
+        - img [ref=e82]
+        - generic [ref=e84]: 实时预警
+      - button "退出" [ref=e86] [cursor=pointer]:
+        - generic [ref=e87]: 退出
+    - main [ref=e88]:
+      - generic [ref=e203]:
+        - generic [ref=e205]: 历史预警查询
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - generic [ref=e208]:
+              - generic [ref=e209]: 站点
+              - generic [ref=e212] [cursor=pointer]:
+                - generic:
+                  - combobox "站点" [ref=e214]
+                  - generic [ref=e215]: 全部
+                - img [ref=e218]
+            - generic [ref=e220]:
+              - generic [ref=e221]: 类型
+              - generic [ref=e224] [cursor=pointer]:
+                - generic:
+                  - combobox "类型" [ref=e226]
+                  - generic [ref=e227]: 全部
+                - img [ref=e230]
+            - generic [ref=e232]:
+              - generic [ref=e233]: 状态
+              - generic [ref=e236] [cursor=pointer]:
+                - generic:
+                  - combobox "状态" [ref=e238]
+                  - generic [ref=e239]: 全部
+                - img [ref=e242]
+            - generic [ref=e244]:
+              - generic [ref=e245]: 时间
+              - generic [ref=e247]:
+                - img [ref=e249]
+                - combobox "时间" [ref=e253]
+                - generic [ref=e254]: 至
+                - combobox "结束" [ref=e255]
+            - generic [ref=e257]:
+              - button "查询" [ref=e258] [cursor=pointer]:
+                - generic [ref=e259]: 查询
+              - button "导出CSV" [ref=e260] [cursor=pointer]:
+                - generic [ref=e261]: 导出CSV
+              - button "导出Excel" [ref=e262] [cursor=pointer]:
+                - generic [ref=e263]: 导出Excel
+          - generic [ref=e265]:
+            - table [ref=e267]:
+              - rowgroup [ref=e276]:
+                - row "类型 站点 通道 时间 状态 描述 操作" [ref=e277]:
+                  - columnheader "类型" [ref=e278]:
+                    - generic [ref=e279]: 类型
+                  - columnheader "站点" [ref=e280]:
+                    - generic [ref=e281]: 站点
+                  - columnheader "通道" [ref=e282]:
+                    - generic [ref=e283]: 通道
+                  - columnheader "时间" [ref=e284]:
+                    - generic [ref=e285]: 时间
+                  - columnheader "状态" [ref=e286]:
+                    - generic [ref=e287]: 状态
+                  - columnheader "描述" [ref=e288]:
+                    - generic [ref=e289]: 描述
+                  - columnheader "操作" [ref=e290]:
+                    - generic [ref=e291]: 操作
+            - generic [ref=e295]:
+              - table:
+                - rowgroup
+              - generic [ref=e297]: No Data
+          - generic [ref=e298]:
+            - generic [ref=e299]: Total 0
+            - button "Go to previous page" [disabled] [ref=e300]:
+              - generic:
+                - img
+            - list [ref=e301]:
+              - listitem "page 1" [ref=e302]: "1"
+            - button "Go to next page" [disabled] [ref=e303]:
+              - generic:
+                - img

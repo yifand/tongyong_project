@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-04-06T00:55:43+0800",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.12 (Oracle Corporation)"
+    date = "2026-04-11T11:59:41+0800",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.45.0.v20260224-0835, environment: Java 21.0.10 (Eclipse Adoptium)"
 )
 @Component
 public class AlarmMapperImpl implements AlarmMapper {
@@ -28,19 +28,19 @@ public class AlarmMapperImpl implements AlarmMapper {
         alarmResponse.setTypeName( mapTypeName( alarm.getType() ) );
         alarmResponse.setStatusName( mapStatusName( alarm.getStatus() ) );
         alarmResponse.setExtraInfo( mapExtraInfo( alarm.getExtraInfo() ) );
-        alarmResponse.setId( alarm.getId() );
-        alarmResponse.setType( alarm.getType() );
-        alarmResponse.setSiteId( alarm.getSiteId() );
-        alarmResponse.setChannelId( alarm.getChannelId() );
         alarmResponse.setAlarmTime( alarm.getAlarmTime() );
-        alarmResponse.setLocation( alarm.getLocation() );
-        alarmResponse.setFaceImageUrl( alarm.getFaceImageUrl() );
-        alarmResponse.setSceneImageUrl( alarm.getSceneImageUrl() );
-        alarmResponse.setStatus( alarm.getStatus() );
-        alarmResponse.setProcessorId( alarm.getProcessorId() );
-        alarmResponse.setProcessedAt( alarm.getProcessedAt() );
-        alarmResponse.setRemark( alarm.getRemark() );
+        alarmResponse.setChannelId( alarm.getChannelId() );
         alarmResponse.setCreatedAt( alarm.getCreatedAt() );
+        alarmResponse.setFaceImageUrl( alarm.getFaceImageUrl() );
+        alarmResponse.setId( alarm.getId() );
+        alarmResponse.setLocation( alarm.getLocation() );
+        alarmResponse.setProcessedAt( alarm.getProcessedAt() );
+        alarmResponse.setProcessorId( alarm.getProcessorId() );
+        alarmResponse.setRemark( alarm.getRemark() );
+        alarmResponse.setSceneImageUrl( alarm.getSceneImageUrl() );
+        alarmResponse.setSiteId( alarm.getSiteId() );
+        alarmResponse.setStatus( alarm.getStatus() );
+        alarmResponse.setType( alarm.getType() );
 
         return alarmResponse;
     }
@@ -68,9 +68,9 @@ public class AlarmMapperImpl implements AlarmMapper {
         AlarmStatisticsResponse alarmStatisticsResponse = new AlarmStatisticsResponse();
 
         alarmStatisticsResponse.setProcessRate( calculateProcessRate( statistics ) );
+        alarmStatisticsResponse.setProcessed( statistics.getProcessed() );
         alarmStatisticsResponse.setTotal( statistics.getTotal() );
         alarmStatisticsResponse.setUnprocessed( statistics.getUnprocessed() );
-        alarmStatisticsResponse.setProcessed( statistics.getProcessed() );
 
         return alarmStatisticsResponse;
     }

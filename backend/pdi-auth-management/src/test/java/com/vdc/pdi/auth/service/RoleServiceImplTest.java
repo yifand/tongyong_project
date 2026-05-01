@@ -17,6 +17,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -46,11 +47,11 @@ class RoleServiceImplTest {
     void setUp() {
         mockRole = new Role();
         mockRole.setId(1L);
-        mockRole.setRoleCode("ADMIN");
-        mockRole.setRoleName("管理员");
+        mockRole.setCode("ADMIN");
+        mockRole.setName("管理员");
         mockRole.setDescription("系统管理员");
         mockRole.setStatus(1);
-        mockRole.setDeleted(false);
+        mockRole.setDeletedAt(null);  // 未删除
     }
 
     @Test
@@ -63,8 +64,8 @@ class RoleServiceImplTest {
 
         // Then
         assertNotNull(result);
-        assertEquals("ADMIN", result.getRoleCode());
-        assertEquals("管理员", result.getRoleName());
+        assertEquals("ADMIN", result.getCode());
+        assertEquals("管理员", result.getName());
     }
 
     @Test
@@ -82,14 +83,14 @@ class RoleServiceImplTest {
     @Test
     void getRoleByCode_Success() {
         // Given
-        when(roleRepository.findByRoleCodeAndNotDeleted("ADMIN")).thenReturn(Optional.of(mockRole));
+        when(roleRepository.findByCodeAndNotDeleted("ADMIN")).thenReturn(Optional.of(mockRole));
 
         // When
         Role result = roleService.getRoleByCode("ADMIN");
 
         // Then
         assertNotNull(result);
-        assertEquals("ADMIN", result.getRoleCode());
+        assertEquals("ADMIN", result.getCode());
     }
 
     @Test
@@ -97,7 +98,7 @@ class RoleServiceImplTest {
         // Given
         Pageable pageable = PageRequest.of(0, 10);
         Page<Role> rolePage = new PageImpl<>(Collections.singletonList(mockRole));
-        when(roleRepository.findByDeletedFalse(pageable)).thenReturn(rolePage);
+        when(roleRepository.findByDeletedAtIsNull(pageable)).thenReturn(rolePage);
 
         // When
         Page<Role> result = roleService.getRoles(pageable);
@@ -105,13 +106,13 @@ class RoleServiceImplTest {
         // Then
         assertNotNull(result);
         assertEquals(1, result.getTotalElements());
-        assertEquals("ADMIN", result.getContent().get(0).getRoleCode());
+        assertEquals("ADMIN", result.getContent().get(0).getCode());
     }
 
     @Test
     void getAllActiveRoles_Success() {
         // Given
-        when(roleRepository.findByStatusAndDeletedFalse(1)).thenReturn(Collections.singletonList(mockRole));
+        when(roleRepository.findByStatusAndDeletedAtIsNull(1)).thenReturn(Collections.singletonList(mockRole));
 
         // When
         List<Role> result = roleService.getAllActiveRoles();
@@ -119,17 +120,17 @@ class RoleServiceImplTest {
         // Then
         assertNotNull(result);
         assertEquals(1, result.size());
-        assertEquals("ADMIN", result.get(0).getRoleCode());
+        assertEquals("ADMIN", result.get(0).getCode());
     }
 
     @Test
     void createRole_Success() {
         // Given
         Role newRole = new Role();
-        newRole.setRoleCode("USER");
-        newRole.setRoleName("普通用户");
+        newRole.setCode("USER");
+        newRole.setName("普通用户");
 
-        when(roleRepository.existsByRoleCode("USER")).thenReturn(false);
+        when(roleRepository.existsByCode("USER")).thenReturn(false);
         when(roleRepository.save(any(Role.class))).thenAnswer(invocation -> {
             Role saved = invocation.getArgument(0);
             saved.setId(2L);
@@ -141,9 +142,9 @@ class RoleServiceImplTest {
 
         // Then
         assertNotNull(result);
-        assertEquals("USER", result.getRoleCode());
+        assertEquals("USER", result.getCode());
         assertEquals(1, result.getStatus());
-        assertFalse(result.getDeleted());
+        assertNull(result.getDeletedAt());  // 检查 deletedAt 是否为 null
         verify(roleRepository).save(any(Role.class));
     }
 
@@ -151,9 +152,9 @@ class RoleServiceImplTest {
     void createRole_RoleCodeExists() {
         // Given
         Role newRole = new Role();
-        newRole.setRoleCode("ADMIN");
+        newRole.setCode("ADMIN");
 
-        when(roleRepository.existsByRoleCode("ADMIN")).thenReturn(true);
+        when(roleRepository.existsByCode("ADMIN")).thenReturn(true);
 
         // When & Then
         RuntimeException exception = assertThrows(RuntimeException.class, () ->
@@ -166,8 +167,8 @@ class RoleServiceImplTest {
     void updateRole_Success() {
         // Given
         Role updateRequest = new Role();
-        updateRequest.setRoleCode("ADMIN");
-        updateRequest.setRoleName("超级管理员");
+        updateRequest.setCode("ADMIN");
+        updateRequest.setName("超级管理员");
         updateRequest.setDescription("更新后的描述");
 
         when(roleRepository.findById(1L)).thenReturn(Optional.of(mockRole));
@@ -178,7 +179,7 @@ class RoleServiceImplTest {
 
         // Then
         assertNotNull(result);
-        assertEquals("超级管理员", mockRole.getRoleName());
+        assertEquals("超级管理员", mockRole.getName());
         assertEquals("更新后的描述", mockRole.getDescription());
         verify(roleRepository).save(mockRole);
     }
@@ -193,7 +194,7 @@ class RoleServiceImplTest {
         roleService.deleteRole(1L);
 
         // Then
-        assertTrue(mockRole.getDeleted());
+        assertNotNull(mockRole.getDeletedAt());  // 检查 deletedAt 是否被设置
         verify(userRoleRepository).deleteByRoleId(1L);
         verify(roleRepository).save(mockRole);
     }
@@ -219,10 +220,6 @@ class RoleServiceImplTest {
         mockUser.setId(1L);
         mockUser.setUsername("testuser");
 
-        UserRole userRole = new UserRole();
-        userRole.setUser(mockUser);
-        userRole.setRole(mockRole);
-
         when(userRoleRepository.findRolesByUserId(1L)).thenReturn(Collections.singletonList(mockRole));
 
         // When
@@ -231,13 +228,13 @@ class RoleServiceImplTest {
         // Then
         assertNotNull(result);
         assertEquals(1, result.size());
-        assertEquals("ADMIN", result.get(0).getRoleCode());
+        assertEquals("ADMIN", result.get(0).getCode());
     }
 
     @Test
     void existsByRoleCode_Success() {
         // Given
-        when(roleRepository.existsByRoleCode("ADMIN")).thenReturn(true);
+        when(roleRepository.existsByCode("ADMIN")).thenReturn(true);
 
         // When
         boolean exists = roleService.existsByRoleCode("ADMIN");

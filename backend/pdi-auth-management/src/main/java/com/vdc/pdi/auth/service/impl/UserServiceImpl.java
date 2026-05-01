@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,14 +68,14 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public Page<UserResponse> getUsers(Pageable pageable) {
-        return userRepository.findByDeletedFalse(pageable)
+        return userRepository.findByDeletedAtIsNull(pageable)
                 .map(this::convertToResponse);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Page<UserResponse> getUsersByDeptId(Long deptId, Pageable pageable) {
-        return userRepository.findByDeptIdAndDeletedFalse(deptId, pageable)
+        return userRepository.findByDeptIdAndDeletedAtIsNull(deptId, pageable)
                 .map(this::convertToResponse);
     }
 
@@ -100,7 +100,7 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(request, user);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setStatus(1);
-        user.setDeleted(false);
+        user.setDeletedAt(null);
 
         User savedUser = userRepository.save(user);
 
@@ -127,8 +127,8 @@ public class UserServiceImpl implements UserService {
         }
 
         // 更新用户信息
-        if (request.getRealName() != null) {
-            user.setRealName(request.getRealName());
+        if (request.getName() != null) {
+            user.setName(request.getName());
         }
         if (request.getEmail() != null) {
             user.setEmail(request.getEmail());
@@ -162,7 +162,7 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
-        user.setDeleted(true);
+        user.setDeletedAt(LocalDateTime.now());
         userRepository.save(user);
         logger.info("User deleted: {}", user.getUsername());
     }
@@ -190,9 +190,7 @@ public class UserServiceImpl implements UserService {
                 Role role = roleRepository.findById(roleId)
                         .orElseThrow(() -> new RuntimeException("Role not found with id: " + roleId));
 
-                UserRole userRole = new UserRole();
-                userRole.setUser(user);
-                userRole.setRole(role);
+                UserRole userRole = new UserRole(user, role);
                 userRoleRepository.save(userRole);
             }
         }
@@ -205,7 +203,7 @@ public class UserServiceImpl implements UserService {
     public List<Long> getUserRoleIds(Long userId) {
         List<UserRole> userRoles = userRoleRepository.findByUserId(userId);
         return userRoles.stream()
-                .map(ur -> ur.getRole().getId())
+                .map(UserRole::getRoleId)
                 .collect(Collectors.toList());
     }
 
@@ -254,10 +252,10 @@ public class UserServiceImpl implements UserService {
         // 获取用户角色
         List<Role> roles = userRoleRepository.findRolesByUserId(user.getId());
         List<String> roleCodes = roles.stream()
-                .map(Role::getRoleCode)
+                .map(Role::getCode)
                 .collect(Collectors.toList());
         List<String> roleNames = roles.stream()
-                .map(Role::getRoleName)
+                .map(Role::getName)
                 .collect(Collectors.toList());
 
         response.setRoleCodes(roleCodes);

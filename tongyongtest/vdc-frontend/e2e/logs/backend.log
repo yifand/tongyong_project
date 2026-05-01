@@ -1,0 +1,17 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-04-17T10:35:46.051+08:00  INFO 26589 --- [vdc-platform] [           main] c.vdc.platform.VdcPlatformApplication    : Starting VdcPlatformApplication v1.0.0-SNAPSHOT using Java 17.0.12 with PID 26589 (/Users/apple/Desktop/设计文件/通用设计文件/tongyongtest/vdc-platform/target/vdc-platform-1.0.0-SNAPSHOT.jar started by apple in /Users/apple/Desktop/设计文件/通用设计文件/tongyongtest/vdc-platform)
+2026-04-17T10:35:46.054+08:00 DEBUG 26589 --- [vdc-platform] [           main] c.vdc.platform.VdcPlatformApplication    : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-04-17T10:35:46.055+08:00  INFO 26589 --- [vdc-platform] [           main] c.vdc.platform.VdcPlatformApplication    : The following 1 profile is active: "e2e"
+2026-04-17T10:35:48.404+08:00  INFO 26589 --- [vdc-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-17T10:35:48.409+08:00  INFO 26589 --- [vdc-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-17T10:35:48.460+08:00  INFO 26589 --- [vdc-platform] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 0 Redis repository interfaces.
+2026-04-17T10:35:49.560+08:00  INFO 26589 --- [vdc-platform] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-17T10:35:49.605+08:00  INFO 26589 --- [vdc-platform] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3410 ms

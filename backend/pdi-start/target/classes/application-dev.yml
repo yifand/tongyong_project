@@ -1,0 +1,78 @@
+# ============================================================
+# PDI智能监测平台 - 开发环境配置
+# ============================================================
+
+server:
+  port: 8080
+
+spring:
+  # ============================================================
+  # 开发环境数据源 (H2内存数据库，便于开发测试)
+  # ============================================================
+  datasource:
+    url: jdbc:h2:mem:pdi_dev;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+
+  # ============================================================
+  # JPA配置 - 开发环境自动创建表结构
+  # ============================================================
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+  # ============================================================
+  # SQL初始化 - 开发环境执行初始数据
+  # ============================================================
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+  # ============================================================
+  # H2控制台配置 (开发环境启用)
+  # ============================================================
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+# ============================================================
+# JWT配置 - 开发环境使用简化密钥
+# ============================================================
+jwt:
+  secret: dev-secret-key-must-be-at-least-32-characters-long
+  access-token-expiration: 86400000      # 24小时 (开发环境便于测试)
+  refresh-token-expiration: 604800000    # 7天
+
+# ============================================================
+# 日志配置 - 开发环境DEBUG级别
+# ============================================================
+logging:
+  level:
+    root: INFO
+    com.vdc.pdi: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# ============================================================
+# CORS配置 - 开发环境允许所有来源
+# ============================================================
+pdi:
+  cors:
+    allowed-origins: "*"
+    allow-credentials: false

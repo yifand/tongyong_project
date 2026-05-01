@@ -1,0 +1,130 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "设备监控" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e31]: 设备监控
+      - menuitem "盒子管理" [ref=e32] [cursor=pointer]:
+        - img [ref=e34]
+        - generic [ref=e38]: 盒子管理
+      - menuitem "通道管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 通道管理
+      - menuitem "用户管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 用户管理
+      - menuitem "角色管理" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e53]: 角色管理
+      - menuitem "规则配置" [ref=e54] [cursor=pointer]:
+        - img [ref=e56]
+        - generic [ref=e61]: 规则配置
+      - menuitem "阈值配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 阈值配置
+      - menuitem "通用配置" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 通用配置
+      - menuitem "操作日志" [ref=e72] [cursor=pointer]:
+        - img [ref=e74]
+        - generic [ref=e76]: 操作日志
+  - generic [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79] [cursor=pointer]:
+        - img [ref=e82]
+        - generic [ref=e84]: 实时预警
+      - button "退出" [ref=e86] [cursor=pointer]:
+        - generic [ref=e87]: 退出
+    - main [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - generic [ref=e93]:
+            - generic [ref=e94]: 在线盒子
+            - generic [ref=e95]: "0"
+          - generic [ref=e98]:
+            - generic [ref=e99]: 离线盒子
+            - generic [ref=e100]: "1"
+          - generic [ref=e103]:
+            - generic [ref=e104]: 在线通道
+            - generic [ref=e105]: "0"
+          - generic [ref=e108]:
+            - generic [ref=e109]: 离线通道
+            - generic [ref=e110]: "1"
+        - generic [ref=e111]:
+          - generic [ref=e114]: 盒子在线状态
+          - generic [ref=e121]: 最近24小时报警趋势
+        - generic [ref=e126]:
+          - generic [ref=e128]:
+            - generic [ref=e129]: 盒子列表状态
+            - generic [ref=e132]:
+              - table [ref=e134]:
+                - rowgroup [ref=e142]:
+                  - row "盒子编号 名称 站点 IP地址 状态 最后心跳" [ref=e143]:
+                    - columnheader "盒子编号" [ref=e144]:
+                      - generic [ref=e145]: 盒子编号
+                    - columnheader "名称" [ref=e146]:
+                      - generic [ref=e147]: 名称
+                    - columnheader "站点" [ref=e148]:
+                      - generic [ref=e149]: 站点
+                    - columnheader "IP地址" [ref=e150]:
+                      - generic [ref=e151]: IP地址
+                    - columnheader "状态" [ref=e152]:
+                      - generic [ref=e153]: 状态
+                    - columnheader "最后心跳" [ref=e154]:
+                      - generic [ref=e155]: 最后心跳
+              - table [ref=e160]:
+                - rowgroup [ref=e168]:
+                  - row "BOX_001 金桥盒子1 金桥库 192.168.1.100 离线" [ref=e169]:
+                    - cell "BOX_001" [ref=e170]:
+                      - generic [ref=e171]: BOX_001
+                    - cell "金桥盒子1" [ref=e172]:
+                      - generic [ref=e173]: 金桥盒子1
+                    - cell "金桥库" [ref=e174]:
+                      - generic [ref=e175]: 金桥库
+                    - cell "192.168.1.100" [ref=e176]:
+                      - generic [ref=e177]: 192.168.1.100
+                    - cell "离线" [ref=e178]:
+                      - generic [ref=e239]: 离线
+                    - cell [ref=e180]
+          - generic [ref=e186]:
+            - generic [ref=e187]: 通道状态
+            - generic [ref=e190]:
+              - table [ref=e192]:
+                - rowgroup [ref=e199]:
+                  - row "通道编号 名称 类型 算法 状态" [ref=e200]:
+                    - columnheader "通道编号" [ref=e201]:
+                      - generic [ref=e202]: 通道编号
+                    - columnheader "名称" [ref=e203]:
+                      - generic [ref=e204]: 名称
+                    - columnheader "类型" [ref=e205]:
+                      - generic [ref=e206]: 类型
+                    - columnheader "算法" [ref=e207]:
+                      - generic [ref=e208]: 算法
+                    - columnheader "状态" [ref=e209]:
+                      - generic [ref=e210]: 状态
+              - table [ref=e215]:
+                - rowgroup [ref=e222]:
+                  - row "CH_01 工位1前摄像头 VIDEO_STREAM PDI_FRONT 离线" [ref=e223]:
+                    - cell "CH_01" [ref=e224]:
+                      - generic [ref=e225]: CH_01
+                    - cell "工位1前摄像头" [ref=e226]:
+                      - generic [ref=e227]: 工位1前摄像头
+                    - cell "VIDEO_STREAM" [ref=e228]:
+                      - generic [ref=e229]: VIDEO_STREAM
+                    - cell "PDI_FRONT" [ref=e230]:
+                      - generic [ref=e231]: PDI_FRONT
+                    - cell "离线" [ref=e232]:
+                      - generic [ref=e241]: 离线

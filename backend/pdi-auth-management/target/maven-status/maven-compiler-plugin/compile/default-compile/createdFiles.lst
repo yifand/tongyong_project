@@ -2,6 +2,7 @@ com/vdc/pdi/auth/controller/RoleController.class
 com/vdc/pdi/auth/service/UserService.class
 com/vdc/pdi/auth/domain/entity/Role.class
 com/vdc/pdi/auth/domain/repository/UserRepository.class
+com/vdc/pdi/auth/domain/entity/UserRoleId.class
 com/vdc/pdi/auth/aspect/DataScopeAspect$DataScopeContext.class
 com/vdc/pdi/auth/dto/request/LoginRequest.class
 com/vdc/pdi/auth/service/RoleService.class

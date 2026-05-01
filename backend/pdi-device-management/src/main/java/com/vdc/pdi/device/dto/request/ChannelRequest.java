@@ -49,6 +49,6 @@ public class ChannelRequest {
     /**
      * RTSP地址
      */
-    @Size(max = 256, message = "RTSP地址长度不能超过256")
+    @Size(max = 512, message = "RTSP地址长度不能超过512")
     private String rtspUrl;
 }

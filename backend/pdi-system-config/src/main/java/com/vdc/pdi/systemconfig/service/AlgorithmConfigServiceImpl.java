@@ -208,8 +208,10 @@ public class AlgorithmConfigServiceImpl implements AlgorithmConfigService {
     }
 
     @Override
-    public Integer getStandardDuration(Long channelId) {
-        AlgorithmConfigResponse config = getConfig(channelId, "PDI_LEFT_FRONT");
+    public Integer getStandardDuration(Long channelId, String algorithmType) {
+        // 默认使用 PDI_LEFT_FRONT 如果未指定算法类型
+        String type = (algorithmType != null && !algorithmType.isEmpty()) ? algorithmType : "PDI_LEFT_FRONT";
+        AlgorithmConfigResponse config = getConfig(channelId, type);
         return config.getStandardDuration();
     }
 

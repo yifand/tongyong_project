@@ -1,6 +1,7 @@
 package com.vdc.pdi.auth.domain.entity;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 /**
@@ -10,32 +11,43 @@ import java.time.LocalDateTime;
 @Table(name = "sys_user_role")
 public class UserRole {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private UserRoleId id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("userId")
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("roleId")
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
-    @Column(name = "create_time")
-    private LocalDateTime createTime;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     @PrePersist
     public void prePersist() {
-        this.createTime = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now();
+    }
+
+    // 便捷构造函数
+    public UserRole() {
+    }
+
+    public UserRole(User user, Role role) {
+        this.user = user;
+        this.role = role;
+        this.id = new UserRoleId(user.getId(), role.getId());
     }
 
     // Getters and Setters
-    public Long getId() {
+    public UserRoleId getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UserRoleId id) {
         this.id = id;
     }
 
@@ -55,11 +67,41 @@ public class UserRole {
         this.role = role;
     }
 
-    public LocalDateTime getCreateTime() {
-        return createTime;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    /**
+     * @deprecated 使用 {@link #getCreatedAt()} 替代
+     */
+    @Deprecated
+    public LocalDateTime getCreateTime() {
+        return getCreatedAt();
+    }
+
+    /**
+     * @deprecated 使用 {@link #setCreatedAt(LocalDateTime)} 替代
+     */
+    @Deprecated
     public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
+        setCreatedAt(createTime);
+    }
+
+    /**
+     * 获取用户ID（便捷方法）
+     */
+    public Long getUserId() {
+        return id != null ? id.getUserId() : null;
+    }
+
+    /**
+     * 获取角色ID（便捷方法）
+     */
+    public Long getRoleId() {
+        return id != null ? id.getRoleId() : null;
     }
 }

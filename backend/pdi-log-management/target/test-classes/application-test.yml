@@ -1,0 +1,36 @@
+# 测试环境配置
+spring:
+  application:
+    name: pdi-log-management-test
+
+  # H2 内存数据库配置
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+  # 禁用 Flyway
+  flyway:
+    enabled: false
+
+# 日志配置
+logging:
+  level:
+    com.vdc.pdi.logmanagement: DEBUG
+    org.springframework.security: DEBUG
+
+# 日志清理配置
+log:
+  cleanup:
+    operation-log-retention-days: 180
+    system-log-retention-days: 30

@@ -1,0 +1,136 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "盒子管理" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e33]: 盒子管理
+      - menuitem "通道管理" [ref=e34] [cursor=pointer]:
+        - img [ref=e36]
+        - generic [ref=e38]: 通道管理
+      - menuitem "用户管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 用户管理
+      - menuitem "角色管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 角色管理
+      - menuitem "规则配置" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e56]: 规则配置
+      - menuitem "阈值配置" [ref=e57] [cursor=pointer]:
+        - img [ref=e59]
+        - generic [ref=e61]: 阈值配置
+      - menuitem "通用配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 通用配置
+      - menuitem "操作日志" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 操作日志
+  - generic [ref=e72]:
+    - generic [ref=e73]:
+      - generic [ref=e74] [cursor=pointer]:
+        - img [ref=e77]
+        - generic [ref=e79]: 实时预警
+      - button "退出" [ref=e81] [cursor=pointer]:
+        - generic [ref=e82]: 退出
+    - main [ref=e83]:
+      - generic [ref=e85]:
+        - generic [ref=e87]: 业务规则配置
+        - generic [ref=e90]:
+          - table [ref=e92]:
+            - rowgroup [ref=e104]:
+              - row "规则名称 适用工位 需车辆在场 进入序列 离开序列 标准工时(秒) 临界阈值% 人员消失超时(秒) 启用 操作" [ref=e105]:
+                - columnheader "规则名称" [ref=e106]:
+                  - generic [ref=e107]: 规则名称
+                - columnheader "适用工位" [ref=e108]:
+                  - generic [ref=e109]: 适用工位
+                - columnheader "需车辆在场" [ref=e110]:
+                  - generic [ref=e111]: 需车辆在场
+                - columnheader "进入序列" [ref=e112]:
+                  - generic [ref=e113]: 进入序列
+                - columnheader "离开序列" [ref=e114]:
+                  - generic [ref=e115]: 离开序列
+                - columnheader "标准工时(秒)" [ref=e116]:
+                  - generic [ref=e117]: 标准工时(秒)
+                - columnheader "临界阈值%" [ref=e118]:
+                  - generic [ref=e119]: 临界阈值%
+                - columnheader "人员消失超时(秒)" [ref=e120]:
+                  - generic [ref=e121]: 人员消失超时(秒)
+                - columnheader "启用" [ref=e122]:
+                  - generic [ref=e123]: 启用
+                - columnheader "操作" [ref=e124]:
+                  - generic [ref=e125]: 操作
+          - table [ref=e136]:
+            - rowgroup [ref=e148]:
+              - row "左前门PDI规则 PDI_FRONT 是 720 90 10 是 编辑" [ref=e149]:
+                - cell "左前门PDI规则" [ref=e150]:
+                  - generic [ref=e151]: 左前门PDI规则
+                - cell "PDI_FRONT" [ref=e152]:
+                  - generic [ref=e153]: PDI_FRONT
+                - cell "是" [ref=e154]:
+                  - generic [ref=e155]: 是
+                - cell [ref=e156]
+                - cell [ref=e157]
+                - cell "720" [ref=e158]:
+                  - generic [ref=e159]: "720"
+                - cell "90" [ref=e160]:
+                  - generic [ref=e161]: "90"
+                - cell "10" [ref=e162]:
+                  - generic [ref=e163]: "10"
+                - cell "是" [ref=e164]:
+                  - generic [ref=e167]: 是
+                - cell "编辑" [ref=e168]:
+                  - button "编辑" [ref=e170] [cursor=pointer]:
+                    - generic [ref=e171]: 编辑
+              - row "左后门PDI规则 PDI_REAR 是 180 90 10 是 编辑" [ref=e172]:
+                - cell "左后门PDI规则" [ref=e173]:
+                  - generic [ref=e174]: 左后门PDI规则
+                - cell "PDI_REAR" [ref=e175]:
+                  - generic [ref=e176]: PDI_REAR
+                - cell "是" [ref=e177]:
+                  - generic [ref=e178]: 是
+                - cell [ref=e179]
+                - cell [ref=e180]
+                - cell "180" [ref=e181]:
+                  - generic [ref=e182]: "180"
+                - cell "90" [ref=e183]:
+                  - generic [ref=e184]: "90"
+                - cell "10" [ref=e185]:
+                  - generic [ref=e186]: "10"
+                - cell "是" [ref=e187]:
+                  - generic [ref=e190]: 是
+                - cell "编辑" [ref=e191]:
+                  - button "编辑" [ref=e193] [cursor=pointer]:
+                    - generic [ref=e194]: 编辑
+              - row "滑移门PDI规则 PDI_SLIDING 是 480 90 10 是 编辑" [ref=e195]:
+                - cell "滑移门PDI规则" [ref=e196]:
+                  - generic [ref=e197]: 滑移门PDI规则
+                - cell "PDI_SLIDING" [ref=e198]:
+                  - generic [ref=e199]: PDI_SLIDING
+                - cell "是" [ref=e200]:
+                  - generic [ref=e201]: 是
+                - cell [ref=e202]
+                - cell [ref=e203]
+                - cell "480" [ref=e204]:
+                  - generic [ref=e205]: "480"
+                - cell "90" [ref=e206]:
+                  - generic [ref=e207]: "90"
+                - cell "10" [ref=e208]:
+                  - generic [ref=e209]: "10"
+                - cell "是" [ref=e210]:
+                  - generic [ref=e213]: 是
+                - cell "编辑" [ref=e214]:
+                  - button "编辑" [ref=e216] [cursor=pointer]:
+                    - generic [ref=e217]: 编辑

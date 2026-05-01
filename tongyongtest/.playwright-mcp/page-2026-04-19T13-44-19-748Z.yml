@@ -1,0 +1,127 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "设备监控" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e31]: 设备监控
+      - menuitem "盒子管理" [ref=e32] [cursor=pointer]:
+        - img [ref=e34]
+        - generic [ref=e38]: 盒子管理
+      - menuitem "通道管理" [active] [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 通道管理
+      - menuitem "用户管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 用户管理
+      - menuitem "角色管理" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e53]: 角色管理
+      - menuitem "规则配置" [ref=e54] [cursor=pointer]:
+        - img [ref=e56]
+        - generic [ref=e61]: 规则配置
+      - menuitem "阈值配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 阈值配置
+      - menuitem "通用配置" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 通用配置
+      - menuitem "操作日志" [ref=e72] [cursor=pointer]:
+        - img [ref=e74]
+        - generic [ref=e76]: 操作日志
+  - generic [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79] [cursor=pointer]:
+        - img [ref=e82]
+        - generic [ref=e84]: 实时预警
+      - button "退出" [ref=e86] [cursor=pointer]:
+        - generic [ref=e87]: 退出
+    - main [ref=e88]:
+      - generic [ref=e125]:
+        - generic [ref=e127]:
+          - text: 通道管理
+          - button "添加通道" [ref=e128] [cursor=pointer]:
+            - generic [ref=e129]: 添加通道
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - generic [ref=e132]:
+              - generic [ref=e133]: 所属盒子
+              - generic [ref=e136] [cursor=pointer]:
+                - generic:
+                  - combobox "所属盒子" [ref=e138]
+                  - generic [ref=e139]: 全部
+                - img [ref=e142]
+            - generic [ref=e144]:
+              - generic [ref=e145]: 状态
+              - generic [ref=e148] [cursor=pointer]:
+                - generic:
+                  - combobox "状态" [ref=e150]
+                  - generic [ref=e151]: 全部
+                - img [ref=e154]
+            - button "查询" [ref=e158] [cursor=pointer]:
+              - generic [ref=e159]: 查询
+          - generic [ref=e161]:
+            - table [ref=e163]:
+              - rowgroup [ref=e173]:
+                - row "通道编号 名称 所属盒子 类型 算法 状态 RTSP地址 操作" [ref=e174]:
+                  - columnheader "通道编号" [ref=e175]:
+                    - generic [ref=e176]: 通道编号
+                  - columnheader "名称" [ref=e177]:
+                    - generic [ref=e178]: 名称
+                  - columnheader "所属盒子" [ref=e179]:
+                    - generic [ref=e180]: 所属盒子
+                  - columnheader "类型" [ref=e181]:
+                    - generic [ref=e182]: 类型
+                  - columnheader "算法" [ref=e183]:
+                    - generic [ref=e184]: 算法
+                  - columnheader "状态" [ref=e185]:
+                    - generic [ref=e186]: 状态
+                  - columnheader "RTSP地址" [ref=e187]:
+                    - generic [ref=e188]: RTSP地址
+                  - columnheader "操作" [ref=e189]:
+                    - generic [ref=e190]: 操作
+            - table [ref=e195]:
+              - rowgroup [ref=e205]:
+                - row "CH_01 工位1前摄像头 金桥盒子1 VIDEO_STREAM PDI_FRONT 离线 rtsp://192.168.1.100/stream1 编辑 预览" [ref=e206]:
+                  - cell "CH_01" [ref=e207]:
+                    - generic [ref=e208]: CH_01
+                  - cell "工位1前摄像头" [ref=e209]:
+                    - generic [ref=e210]: 工位1前摄像头
+                  - cell "金桥盒子1" [ref=e211]:
+                    - generic [ref=e212]: 金桥盒子1
+                  - cell "VIDEO_STREAM" [ref=e213]:
+                    - generic [ref=e214]: VIDEO_STREAM
+                  - cell "PDI_FRONT" [ref=e215]:
+                    - generic [ref=e216]: PDI_FRONT
+                  - cell "离线" [ref=e217]:
+                    - generic [ref=e220]: 离线
+                  - cell "rtsp://192.168.1.100/stream1" [ref=e221]:
+                    - generic [ref=e222]: rtsp://192.168.1.100/stream1
+                  - cell "编辑 预览" [ref=e223]:
+                    - generic [ref=e224]:
+                      - button "编辑" [ref=e225] [cursor=pointer]:
+                        - generic [ref=e226]: 编辑
+                      - button "预览" [ref=e227] [cursor=pointer]:
+                        - generic [ref=e228]: 预览
+          - generic [ref=e229]:
+            - generic [ref=e230]: Total 1
+            - button "Go to previous page" [disabled] [ref=e231]:
+              - generic:
+                - img
+            - list [ref=e232]:
+              - listitem "page 1" [ref=e233]: "1"
+            - button "Go to next page" [disabled] [ref=e234]:
+              - generic:
+                - img

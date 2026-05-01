@@ -1,5 +1,6 @@
 package com.vdc.pdi.auth.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
@@ -10,6 +11,14 @@ import java.util.List;
  */
 public class UpdateUserRequest {
 
+    @Size(max = 50, message = "真实姓名长度不能超过50")
+    private String name;
+
+    /**
+     * @deprecated 使用 {@link #name} 替代
+     */
+    @Deprecated
+    @JsonAlias("name")
     @Size(max = 50, message = "真实姓名长度不能超过50")
     private String realName;
 
@@ -30,12 +39,34 @@ public class UpdateUserRequest {
     private List<Long> roleIds;
 
     // Getters and Setters
-    public String getRealName() {
-        return realName;
+    public String getName() {
+        // 兼容旧字段
+        if (name == null && realName != null) {
+            return realName;
+        }
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+        this.realName = name; // 保持同步
+    }
+
+    /**
+     * @deprecated 使用 {@link #getName()} 替代
+     */
+    @Deprecated
+    public String getRealName() {
+        return getName();
+    }
+
+    /**
+     * @deprecated 使用 {@link #setName(String)} 替代
+     */
+    @Deprecated
     public void setRealName(String realName) {
         this.realName = realName;
+        this.name = realName; // 保持同步
     }
 
     public String getEmail() {

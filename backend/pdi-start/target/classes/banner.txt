@@ -1,0 +1,12 @@
+  _____ _____ _____
+ |  __ \_   _|  __ \
+ | |__) || | | |  | |
+ |  ___/ | | | |  | |
+ | |    _| |_| |__| |
+ |_|   |_____|_____/
+
+PDI智能监测平台 - PDI Monitor Platform
+Version: 1.0.0
+Spring Boot: ${spring-boot.version}
+Java: ${java.version}
+PID: ${PID}

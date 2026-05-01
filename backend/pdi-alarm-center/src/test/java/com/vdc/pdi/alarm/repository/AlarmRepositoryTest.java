@@ -1,5 +1,7 @@
 package com.vdc.pdi.alarm.repository;
 
+import com.vdc.pdi.alarm.AlarmTestApplication;
+import com.vdc.pdi.alarm.TestConfig;
 import com.vdc.pdi.alarm.domain.entity.AlarmRecord;
 import com.vdc.pdi.alarm.domain.repository.AlarmRepository;
 import com.vdc.pdi.common.enums.AlarmStatusEnum;
@@ -8,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDateTime;
@@ -19,6 +22,7 @@ import static org.assertj.core.api.Assertions.*;
  * 报警Repository测试
  */
 @DataJpaTest
+@Import(TestConfig.class)
 @ActiveProfiles("test")
 class AlarmRepositoryTest {
 

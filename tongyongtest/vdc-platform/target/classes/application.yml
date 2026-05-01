@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: vdc-platform
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+
+vdc:
+  jwt:
+    secret: ${JWT_SECRET:dmRjLXBsYXRmb3JtLWp3dC1zZWNyZXQta2V5LTI1Ni1iaXQ=}
+    access-token-expiration: 7200000
+    refresh-token-expiration: 604800000
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when_authorized

@@ -27,7 +27,7 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
     /**
      * 根据用户名查找未删除的用户
      */
-    @Query("SELECT u FROM User u WHERE u.username = :username AND u.deleted = false")
+    @Query("SELECT u FROM User u WHERE u.username = :username AND u.deletedAt IS NULL")
     Optional<User> findByUsernameAndNotDeleted(@Param("username") String username);
 
     /**
@@ -58,16 +58,24 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
      * 更新最后登录信息
      */
     @Modifying
-    @Query("UPDATE User u SET u.lastLoginTime = :loginTime, u.lastLoginIp = :loginIp, u.loginFailCount = 0 WHERE u.id = :userId")
+    @Query("UPDATE User u SET u.lastLoginAt = :loginTime, u.lastLoginIp = :loginIp, u.loginFailCount = 0 WHERE u.id = :userId")
     void updateLastLoginInfo(@Param("userId") Long userId, @Param("loginTime") LocalDateTime loginTime, @Param("loginIp") String loginIp);
 
     /**
      * 分页查询未删除的用户
      */
-    Page<User> findByDeletedFalse(Pageable pageable);
+    Page<User> findByDeletedAtIsNull(Pageable pageable);
 
     /**
      * 根据部门ID查询用户
      */
-    Page<User> findByDeptIdAndDeletedFalse(Long deptId, Pageable pageable);
+    Page<User> findByDeptIdAndDeletedAtIsNull(Long deptId, Pageable pageable);
+
+    /**
+     * @deprecated 使用 {@link #findByDeletedAtIsNull(Pageable)} 替代
+     */
+    @Deprecated
+    default Page<User> findByDeletedFalse(Pageable pageable) {
+        return findByDeletedAtIsNull(pageable);
+    }
 }

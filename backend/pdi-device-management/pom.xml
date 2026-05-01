@@ -144,6 +144,9 @@
                     <classpathDependencyExcludes>
                         <classpathDependencyExclude>org.projectlombok:lombok</classpathDependencyExclude>
                     </classpathDependencyExcludes>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${settings.localRepository}/com/vdc/pdi/pdi-common/1.0.0-SNAPSHOT/pdi-common-1.0.0-SNAPSHOT.jar</additionalClasspathElement>
+                    </additionalClasspathElements>
                 </configuration>
             </plugin>
         </plugins>

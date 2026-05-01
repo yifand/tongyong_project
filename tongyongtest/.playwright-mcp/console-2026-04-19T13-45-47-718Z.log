@@ -1,0 +1,2 @@
+[     114ms] [WARNING] {username: Array(1)} @ http://localhost:5173/node_modules/.vite/deps/element-plus.js?v=cda49d6d:10429
+[     120ms] [WARNING] {password: Array(1)} @ http://localhost:5173/node_modules/.vite/deps/element-plus.js?v=cda49d6d:10429

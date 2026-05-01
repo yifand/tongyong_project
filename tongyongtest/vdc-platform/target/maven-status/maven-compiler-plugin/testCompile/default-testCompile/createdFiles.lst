@@ -1,0 +1,13 @@
+com/vdc/platform/auth/AuthControllerIntegrationTest$3.class
+com/vdc/platform/AbstractIntegrationTest.class
+com/vdc/platform/auth/AuthControllerIntegrationTest$2.class
+com/vdc/platform/controller/ReportControllerTest.class
+com/vdc/platform/ruleengine/PatternMatcherTest.class
+com/vdc/platform/controller/DeviceControllerTest.class
+com/vdc/platform/auth/AuthControllerIntegrationTest.class
+com/vdc/platform/ruleengine/RuleEngineIntegrationTest.class
+com/vdc/platform/auth/JwtUtilTest.class
+com/vdc/platform/ruleengine/StateCombinationUtilTest.class
+com/vdc/platform/auth/AuthControllerIntegrationTest$1.class
+com/vdc/platform/controller/AlarmControllerTest.class
+com/vdc/platform/auth/DataScopeInterceptorTest.class

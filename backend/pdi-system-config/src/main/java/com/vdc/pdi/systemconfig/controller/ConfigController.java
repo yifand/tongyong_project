@@ -18,7 +18,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +38,6 @@ public class ConfigController {
     private final AlgorithmConfigService algorithmConfigService;
     private final BusinessRuleService businessRuleService;
 
-    @Autowired
     public ConfigController(SystemConfigService systemConfigService,
                            AlgorithmConfigService algorithmConfigService,
                            BusinessRuleService businessRuleService) {

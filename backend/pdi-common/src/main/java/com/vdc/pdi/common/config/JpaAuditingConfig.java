@@ -1,5 +1,6 @@
 package com.vdc.pdi.common.config;
 
+import com.vdc.pdi.common.utils.SecurityUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -30,8 +31,7 @@ public class JpaAuditingConfig {
     }
 
     private Long getCurrentUserIdFromSecurityContext() {
-        // 实际实现需要获取SecurityContext中的用户ID
-        // 这里返回null，表示系统操作或无用户上下文
-        return null;
+        // 从SecurityUtils获取当前登录用户ID
+        return SecurityUtils.getCurrentUserId();
     }
 }

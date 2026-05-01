@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776148397756,
+  "projectRoot": "/Users/apple/Desktop/设计文件/通用设计文件/tongyong_project",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "backend": {
+      "path": "backend",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1776148397734,
+      "keyFiles": [
+        "pom.xml"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "backend",
+      "accessCount": 4,
+      "lastAccessed": 1776068539026,
+      "type": "directory"
+    },
+    {
+      "path": "",
+      "accessCount": 3,
+      "lastAccessed": 1776068525700,
+      "type": "directory"
+    },
+    {
+      "path": "模块设计-公共基础.md",
+      "accessCount": 3,
+      "lastAccessed": 1776148704576,
+      "type": "file"
+    },
+    {
+      "path": "模块设计-规则引擎.md",
+      "accessCount": 3,
+      "lastAccessed": 1776148705486,
+      "type": "file"
+    },
+    {
+      "path": "模块设计-权限管理.md",
+      "accessCount": 3,
+      "lastAccessed": 1776148706434,
+      "type": "file"
+    },
+    {
+      "path": "后端架构设计文档.md",
+      "accessCount": 2,
+      "lastAccessed": 1776149301925,
+      "type": "file"
+    },
+    {
+      "path": "backend/pom.xml",
+      "accessCount": 1,
+      "lastAccessed": 1776068529671,
+      "type": "file"
+    },
+    {
+      "path": "模块设计-日志管理.md",
+      "accessCount": 1,
+      "lastAccessed": 1776148669289,
+      "type": "file"
+    },
+    {
+      "path": "产品文档_PDI智能监测平台.md",
+      "accessCount": 1,
+      "lastAccessed": 1776149301894,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

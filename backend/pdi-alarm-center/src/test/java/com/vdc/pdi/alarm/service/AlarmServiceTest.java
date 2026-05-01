@@ -35,7 +35,7 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 /**
- * 报警服务测试
+ * 报警服务测试 - 使用纯Mockito测试
  */
 @ExtendWith(MockitoExtension.class)
 class AlarmServiceTest {
@@ -52,12 +52,15 @@ class AlarmServiceTest {
     @Mock
     private AlarmSSEService alarmSSEService;
 
-    @InjectMocks
     private AlarmServiceImpl alarmService;
+
+    // 固定的站点ID集合，与AlarmServiceImpl中getCurrentUserSiteIds()返回值一致
+    private static final Set<Long> DEFAULT_SITE_IDS = Set.of(1L, 2L);
 
     @BeforeEach
     void setUp() {
-        // 初始化设置
+        // 手动创建服务实例，使用构造函数注入Mock
+        alarmService = new AlarmServiceImpl(alarmRepository, alarmQueryRepository, alarmMapper, alarmSSEService);
     }
 
     @Nested
@@ -72,7 +75,8 @@ class AlarmServiceTest {
                     createAlarmRecord(1L, AlarmTypeEnum.SMOKE.getCode(), 1L),
                     createAlarmRecord(2L, AlarmTypeEnum.PDI_VIOLATION.getCode(), 1L)
             );
-            when(alarmQueryRepository.findRecentAlarms(anySet(), isNull(), eq(50)))
+            // 注意：使用any()匹配Set参数，因为Set.of(1L, 2L)在测试中无法直接eq匹配
+            when(alarmQueryRepository.findRecentAlarms(any(Set.class), nullable(Integer.class), eq(50)))
                     .thenReturn(mockAlarms);
             when(alarmMapper.toResponse(any())).thenReturn(new AlarmResponse());
 
@@ -81,21 +85,21 @@ class AlarmServiceTest {
 
             // Then
             assertThat(result).hasSize(2);
-            verify(alarmQueryRepository).findRecentAlarms(anySet(), isNull(), eq(50));
+            verify(alarmQueryRepository).findRecentAlarms(any(Set.class), nullable(Integer.class), eq(50));
         }
 
         @Test
         @DisplayName("应按类型筛选报警")
         void shouldFilterByType() {
             // Given
-            when(alarmQueryRepository.findRecentAlarms(anySet(), eq(0), eq(50)))
+            when(alarmQueryRepository.findRecentAlarms(any(Set.class), eq(0), eq(50)))
                     .thenReturn(Collections.emptyList());
 
             // When
             alarmService.getRealtimeAlarms(50, 0);
 
             // Then
-            verify(alarmQueryRepository).findRecentAlarms(anySet(), eq(0), eq(50));
+            verify(alarmQueryRepository).findRecentAlarms(any(Set.class), eq(0), eq(50));
         }
     }
 
@@ -273,7 +277,7 @@ class AlarmServiceTest {
                     .processed(22L)
                     .build();
 
-            when(alarmQueryRepository.getStatistics(any(), any(), any())).thenReturn(vo);
+            when(alarmQueryRepository.getStatistics(any(Set.class), any(), any())).thenReturn(vo);
             when(alarmMapper.toStatisticsResponse(any())).thenReturn(new AlarmStatisticsResponse());
 
             // When
@@ -281,7 +285,7 @@ class AlarmServiceTest {
 
             // Then
             assertThat(result).isNotNull();
-            verify(alarmQueryRepository).getStatistics(any(), any(), any());
+            verify(alarmQueryRepository).getStatistics(any(Set.class), any(), any());
         }
     }
 

@@ -1,0 +1,123 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "盒子管理" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e33]: 盒子管理
+      - menuitem "通道管理" [ref=e34] [cursor=pointer]:
+        - img [ref=e36]
+        - generic [ref=e38]: 通道管理
+      - menuitem "用户管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 用户管理
+      - menuitem "角色管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 角色管理
+      - menuitem "规则配置" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e56]: 规则配置
+      - menuitem "阈值配置" [ref=e57] [cursor=pointer]:
+        - img [ref=e59]
+        - generic [ref=e61]: 阈值配置
+      - menuitem "通用配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 通用配置
+      - menuitem "操作日志" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 操作日志
+  - generic [ref=e72]:
+    - generic [ref=e73]:
+      - generic [ref=e74] [cursor=pointer]:
+        - img [ref=e77]
+        - generic [ref=e79]: 实时预警
+      - button "退出" [ref=e81] [cursor=pointer]:
+        - generic [ref=e82]: 退出
+    - main [ref=e83]:
+      - generic [ref=e85]:
+        - generic [ref=e87]: PDI 作业报表
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e91]: 站点
+              - generic [ref=e94] [cursor=pointer]:
+                - generic:
+                  - combobox "站点" [ref=e96]
+                  - generic [ref=e97]: 全部
+                - img [ref=e100]
+            - generic [ref=e102]:
+              - generic [ref=e103]: 工位
+              - generic [ref=e106] [cursor=pointer]:
+                - generic:
+                  - combobox "工位" [ref=e108]
+                  - generic [ref=e109]: 全部
+                - img [ref=e112]
+            - generic [ref=e114]:
+              - generic [ref=e115]: 结果
+              - generic [ref=e118] [cursor=pointer]:
+                - generic:
+                  - combobox "结果" [ref=e120]
+                  - generic [ref=e121]: 全部
+                - img [ref=e124]
+            - generic [ref=e126]:
+              - generic [ref=e127]: 时间
+              - generic [ref=e129]:
+                - img [ref=e131]
+                - combobox "时间" [ref=e135]
+                - generic [ref=e136]: 至
+                - combobox "结束" [ref=e137]
+            - generic [ref=e139]:
+              - button "查询" [ref=e140] [cursor=pointer]:
+                - generic [ref=e141]: 查询
+              - button "导出" [ref=e142] [cursor=pointer]:
+                - generic [ref=e143]: 导出
+          - generic [ref=e145]:
+            - table [ref=e147]:
+              - rowgroup [ref=e159]:
+                - row "站点 工位 车辆信息 开始时间 结束时间 实际时长 标准工时 偏差 判定结果 操作" [ref=e160]:
+                  - columnheader "站点" [ref=e161]:
+                    - generic [ref=e162]: 站点
+                  - columnheader "工位" [ref=e163]:
+                    - generic [ref=e164]: 工位
+                  - columnheader "车辆信息" [ref=e165]:
+                    - generic [ref=e166]: 车辆信息
+                  - columnheader "开始时间" [ref=e167]:
+                    - generic [ref=e168]: 开始时间
+                  - columnheader "结束时间" [ref=e169]:
+                    - generic [ref=e170]: 结束时间
+                  - columnheader "实际时长" [ref=e171]:
+                    - generic [ref=e172]: 实际时长
+                  - columnheader "标准工时" [ref=e173]:
+                    - generic [ref=e174]: 标准工时
+                  - columnheader "偏差" [ref=e175]:
+                    - generic [ref=e176]: 偏差
+                  - columnheader "判定结果" [ref=e177]:
+                    - generic [ref=e178]: 判定结果
+                  - columnheader "操作" [ref=e179]:
+                    - generic [ref=e180]: 操作
+            - generic [ref=e184]:
+              - table:
+                - rowgroup
+              - generic [ref=e186]: No Data
+          - generic [ref=e187]:
+            - generic [ref=e188]: Total 0
+            - button "Go to previous page" [disabled] [ref=e189]:
+              - generic:
+                - img
+            - list [ref=e190]:
+              - listitem "page 1" [ref=e191]: "1"
+            - button "Go to next page" [disabled] [ref=e192]:
+              - generic:
+                - img

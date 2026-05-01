@@ -1,20 +1,31 @@
 package com.vdc.pdi.behaviorarchive.domain.entity;
 
-import com.vdc.pdi.common.entity.BaseEntity;
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 /**
  * 档案时间线实体
  * 对应数据库表 archive_timeline
+ * 注意：不继承BaseEntity，因为时间线表不需要site_id字段（通过archive_id关联获取）
  */
 @Entity
 @Table(name = "archive_timeline", indexes = {
     @Index(name = "idx_timeline_archive_id", columnList = "archive_id"),
     @Index(name = "idx_timeline_seq", columnList = "archive_id, seq", unique = true)
 })
-public class ArchiveTimeline extends BaseEntity {
+@EntityListeners(AuditingEntityListener.class)
+public class ArchiveTimeline {
+
+    /**
+     * 主键ID
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     /**
      * 关联的档案ID
@@ -46,7 +57,41 @@ public class ArchiveTimeline extends BaseEntity {
     @Column(name = "seq", nullable = false)
     private Integer seq;
 
+    /**
+     * 创建时间
+     */
+    @CreatedDate
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    /**
+     * 更新时间
+     */
+    @LastModifiedDate
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    /**
+     * 删除时间，用于逻辑删除
+     */
+    @Column(name = "deleted_at")
+    private LocalDateTime deletedAt;
+
+    /**
+     * 创建人ID
+     */
+    @Column(name = "created_by")
+    private Long createdBy;
+
     // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getArchiveId() {
         return archiveId;
     }
@@ -85,5 +130,46 @@ public class ArchiveTimeline extends BaseEntity {
 
     public void setSeq(Integer seq) {
         this.seq = seq;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    /**
+     * 逻辑删除标记
+     * @return true if deleted
+     */
+    @Transient
+    public boolean isDeleted() {
+        return deletedAt != null;
     }
 }

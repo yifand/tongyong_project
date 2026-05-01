@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd /Users/apple/Desktop/设计文件/通用设计文件/tongyongtest/vdc-frontend && npx tsc --noEmit e2e/setup/globalSetup.ts e2e/setup/globalTeardown.ts e2e/auth.setup.ts e2e/fixtures/test.ts --module esnex...",
+  "error": "Exit code 2\ne2e/fixtures/test.ts(13,15): error TS2345: Argument of type 'Page' is not assignable to parameter of type 'string'.",
+  "timestamp": "2026-04-15T12:05:42.514Z",
+  "retry_count": 1
+}

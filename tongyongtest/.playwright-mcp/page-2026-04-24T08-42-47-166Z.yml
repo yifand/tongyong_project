@@ -1,0 +1,116 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "设备监控" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e31]: 设备监控
+      - menuitem "盒子管理" [ref=e32] [cursor=pointer]:
+        - img [ref=e34]
+        - generic [ref=e38]: 盒子管理
+      - menuitem "通道管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 通道管理
+      - menuitem "用户管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 用户管理
+      - menuitem "角色管理" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e53]: 角色管理
+      - menuitem "规则配置" [ref=e54] [cursor=pointer]:
+        - img [ref=e56]
+        - generic [ref=e61]: 规则配置
+      - menuitem "阈值配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 阈值配置
+      - menuitem "通用配置" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 通用配置
+      - menuitem "操作日志" [ref=e72] [cursor=pointer]:
+        - img [ref=e74]
+        - generic [ref=e76]: 操作日志
+  - generic [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79] [cursor=pointer]:
+        - img [ref=e82]
+        - generic [ref=e84]: 实时预警
+      - button "退出" [ref=e86] [cursor=pointer]:
+        - generic [ref=e87]: 退出
+    - main [ref=e88]:
+      - generic [ref=e90]:
+        - generic [ref=e92]:
+          - generic [ref=e93]: 用户管理
+          - button "添加用户" [ref=e94] [cursor=pointer]:
+            - generic [ref=e95]: 添加用户
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: 用户名
+              - textbox "用户名" [ref=e103]
+            - button "查询" [ref=e106] [cursor=pointer]:
+              - generic [ref=e107]: 查询
+          - generic [ref=e109]:
+            - table [ref=e111]:
+              - rowgroup [ref=e121]:
+                - row "用户名 姓名 手机号 邮箱 角色 所属站点 状态 操作" [ref=e122]:
+                  - columnheader "用户名" [ref=e123]:
+                    - generic [ref=e124]: 用户名
+                  - columnheader "姓名" [ref=e125]:
+                    - generic [ref=e126]: 姓名
+                  - columnheader "手机号" [ref=e127]:
+                    - generic [ref=e128]: 手机号
+                  - columnheader "邮箱" [ref=e129]:
+                    - generic [ref=e130]: 邮箱
+                  - columnheader "角色" [ref=e131]:
+                    - generic [ref=e132]: 角色
+                  - columnheader "所属站点" [ref=e133]:
+                    - generic [ref=e134]: 所属站点
+                  - columnheader "状态" [ref=e135]:
+                    - generic [ref=e136]: 状态
+                  - columnheader "操作" [ref=e137]:
+                    - generic [ref=e138]: 操作
+            - table [ref=e143]:
+              - rowgroup [ref=e153]:
+                - row "admin 系统管理员 13800138000 admin@vdc.com 超级管理员 全部 启用 编辑 删除" [ref=e154]:
+                  - cell "admin" [ref=e155]:
+                    - generic [ref=e156]: admin
+                  - cell "系统管理员" [ref=e157]:
+                    - generic [ref=e158]: 系统管理员
+                  - cell "13800138000" [ref=e159]:
+                    - generic [ref=e160]: "13800138000"
+                  - cell "admin@vdc.com" [ref=e161]:
+                    - generic [ref=e162]: admin@vdc.com
+                  - cell "超级管理员" [ref=e163]:
+                    - generic [ref=e164]: 超级管理员
+                  - cell "全部" [ref=e165]:
+                    - generic [ref=e166]: 全部
+                  - cell "启用" [ref=e167]:
+                    - generic [ref=e170]: 启用
+                  - cell "编辑 删除" [ref=e171]:
+                    - generic [ref=e172]:
+                      - button "编辑" [ref=e173] [cursor=pointer]:
+                        - generic [ref=e174]: 编辑
+                      - button "删除" [ref=e175] [cursor=pointer]:
+                        - generic [ref=e176]: 删除
+          - generic [ref=e177]:
+            - generic [ref=e178]: Total 1
+            - button "Go to previous page" [disabled] [ref=e179]:
+              - generic:
+                - img
+            - list [ref=e180]:
+              - listitem "page 1" [ref=e181]: "1"
+            - button "Go to next page" [disabled] [ref=e182]:
+              - generic:
+                - img

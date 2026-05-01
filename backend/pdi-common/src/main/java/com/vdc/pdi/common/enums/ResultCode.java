@@ -39,6 +39,9 @@ public enum ResultCode implements EnumCode<Integer> {
     TOKEN_EXPIRED(701, "令牌已过期"),
     TOKEN_INVALID(702, "令牌无效"),
     PERMISSION_DENIED(703, "权限不足"),
+    ACCOUNT_LOCKED(704, "账户已被锁定"),
+    INVALID_CREDENTIALS(705, "用户名或密码错误"),
+    USER_NOT_FOUND(706, "用户不存在"),
 
     // ========== 校验错误 (8xx) ==========
     VALIDATION_ERROR(800, "参数校验失败"),
@@ -64,6 +67,7 @@ public enum ResultCode implements EnumCode<Integer> {
     // ========== 告警错误 (13xx) ==========
     ALARM_ERROR(1300, "告警相关错误"),
     ALARM_NOT_FOUND(1301, "告警不存在"),
+    ALARM_ALREADY_PROCESSED(1302, "告警已处理"),
 
     // ========== 状态码错误 (14xx) ==========
     STATE_CODE_ERROR(1400, "状态码相关错误"),

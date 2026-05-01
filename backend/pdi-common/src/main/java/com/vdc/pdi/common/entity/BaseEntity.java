@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class BaseEntity {
+public abstract class BaseEntity implements SoftDeletable {
 
     /**
      * 主键ID
@@ -105,14 +105,5 @@ public abstract class BaseEntity {
 
     public void setCreatedBy(Long createdBy) {
         this.createdBy = createdBy;
-    }
-
-    /**
-     * 逻辑删除标记
-     * @return true if deleted
-     */
-    @Transient
-    public boolean isDeleted() {
-        return deletedAt != null;
     }
 }

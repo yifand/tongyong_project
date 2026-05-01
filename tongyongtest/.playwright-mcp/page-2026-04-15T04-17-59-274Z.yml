@@ -1,0 +1,107 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "盒子管理" [active] [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e33]: 盒子管理
+      - menuitem "通道管理" [ref=e34] [cursor=pointer]:
+        - img [ref=e36]
+        - generic [ref=e38]: 通道管理
+      - menuitem "用户管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 用户管理
+      - menuitem "角色管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 角色管理
+      - menuitem "规则配置" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e56]: 规则配置
+      - menuitem "阈值配置" [ref=e57] [cursor=pointer]:
+        - img [ref=e59]
+        - generic [ref=e61]: 阈值配置
+      - menuitem "通用配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 通用配置
+      - menuitem "操作日志" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 操作日志
+  - generic [ref=e72]:
+    - generic [ref=e73]:
+      - generic [ref=e74] [cursor=pointer]:
+        - img [ref=e77]
+        - generic [ref=e79]: 实时预警
+      - button "退出" [ref=e81] [cursor=pointer]:
+        - generic [ref=e82]: 退出
+    - main [ref=e83]:
+      - generic [ref=e251]:
+        - generic [ref=e253]:
+          - generic [ref=e254]: 边缘盒子管理
+          - button "添加盒子" [ref=e255] [cursor=pointer]:
+            - generic [ref=e256]: 添加盒子
+        - generic [ref=e257]:
+          - generic [ref=e258]:
+            - generic [ref=e259]:
+              - generic [ref=e260]: 站点
+              - generic [ref=e263] [cursor=pointer]:
+                - generic:
+                  - combobox "站点" [ref=e265]
+                  - generic [ref=e266]: 全部
+                - img [ref=e269]
+            - generic [ref=e271]:
+              - generic [ref=e272]: 状态
+              - generic [ref=e275] [cursor=pointer]:
+                - generic:
+                  - combobox "状态" [ref=e277]
+                  - generic [ref=e278]: 全部
+                - img [ref=e281]
+            - button "查询" [ref=e285] [cursor=pointer]:
+              - generic [ref=e286]: 查询
+          - generic [ref=e288]:
+            - table [ref=e290]:
+              - rowgroup [ref=e301]:
+                - row "盒子编号 名称 站点 IP地址 状态 最后心跳 版本 资源 操作" [ref=e302]:
+                  - columnheader "盒子编号" [ref=e303]:
+                    - generic [ref=e304]: 盒子编号
+                  - columnheader "名称" [ref=e305]:
+                    - generic [ref=e306]: 名称
+                  - columnheader "站点" [ref=e307]:
+                    - generic [ref=e308]: 站点
+                  - columnheader "IP地址" [ref=e309]:
+                    - generic [ref=e310]: IP地址
+                  - columnheader "状态" [ref=e311]:
+                    - generic [ref=e312]: 状态
+                  - columnheader "最后心跳" [ref=e313]:
+                    - generic [ref=e314]: 最后心跳
+                  - columnheader "版本" [ref=e315]:
+                    - generic [ref=e316]: 版本
+                  - columnheader "资源" [ref=e317]:
+                    - generic [ref=e318]: 资源
+                  - columnheader "操作" [ref=e319]:
+                    - generic [ref=e320]: 操作
+            - generic [ref=e324]:
+              - table:
+                - rowgroup
+              - generic [ref=e326]: No Data
+          - generic [ref=e327]:
+            - generic [ref=e328]: Total 0
+            - button "Go to previous page" [disabled] [ref=e329]:
+              - generic:
+                - img
+            - list [ref=e330]:
+              - listitem "page 1" [ref=e331]: "1"
+            - button "Go to next page" [disabled] [ref=e332]:
+              - generic:
+                - img

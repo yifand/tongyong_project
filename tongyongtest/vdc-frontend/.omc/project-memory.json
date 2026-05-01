@@ -1,0 +1,423 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776232728203,
+  "projectRoot": "/Users/apple/Desktop/设计文件/通用设计文件/tongyongtest/vdc-frontend",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "vue",
+        "version": "3.4.21",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "5.2.6",
+        "category": "build"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "vue-tsc && vite build",
+      "preview": "vite preview"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": "ES modules",
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 1,
+      "lastAccessed": 1776232728190,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 2,
+      "lastAccessed": 1776232728190,
+      "keyFiles": [
+        "App.vue",
+        "main.ts"
+      ]
+    },
+    "dist/assets": {
+      "path": "dist/assets",
+      "purpose": "Static assets",
+      "fileCount": 37,
+      "lastAccessed": 1776232728193,
+      "keyFiles": [
+        "AlarmDetail-B08W9BHb.js",
+        "AlarmDetail-CPMZOV6t.css",
+        "BoxListView-B9dNDpL8.css"
+      ]
+    },
+    "src/api": {
+      "path": "src/api",
+      "purpose": "API routes",
+      "fileCount": 7,
+      "lastAccessed": 1776232728194,
+      "keyFiles": [
+        "alarm.ts",
+        "auth.ts",
+        "config.ts"
+      ]
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 1,
+      "lastAccessed": 1776232728194,
+      "keyFiles": [
+        "AlarmNotificationBar.vue"
+      ]
+    },
+    "src/types": {
+      "path": "src/types",
+      "purpose": "Type definitions",
+      "fileCount": 1,
+      "lastAccessed": 1776232728194,
+      "keyFiles": [
+        "index.ts"
+      ]
+    },
+    "src/utils": {
+      "path": "src/utils",
+      "purpose": "Utility functions",
+      "fileCount": 0,
+      "lastAccessed": 1776232728194,
+      "keyFiles": []
+    },
+    "src/views": {
+      "path": "src/views",
+      "purpose": "View templates",
+      "fileCount": 3,
+      "lastAccessed": 1776232728194,
+      "keyFiles": [
+        "DashboardView.vue",
+        "LayoutView.vue",
+        "LoginView.vue"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "e2e",
+      "accessCount": 18,
+      "lastAccessed": 1776263475428,
+      "type": "directory"
+    },
+    {
+      "path": "e2e/setup/globalSetup.ts",
+      "accessCount": 9,
+      "lastAccessed": 1776393330057,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/LoginPage.ts",
+      "accessCount": 8,
+      "lastAccessed": 1776263463810,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 7,
+      "lastAccessed": 1776258171416,
+      "type": "directory"
+    },
+    {
+      "path": "e2e/setup/globalTeardown.ts",
+      "accessCount": 7,
+      "lastAccessed": 1776263287961,
+      "type": "file"
+    },
+    {
+      "path": "e2e/utils/api-seed.ts",
+      "accessCount": 7,
+      "lastAccessed": 1776263449844,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/PdiReportPage.ts",
+      "accessCount": 7,
+      "lastAccessed": 1776263457602,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/ChannelListPage.ts",
+      "accessCount": 7,
+      "lastAccessed": 1776263469181,
+      "type": "file"
+    },
+    {
+      "path": "playwright.config.ts",
+      "accessCount": 7,
+      "lastAccessed": 1776336418116,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/UserManagePage.ts",
+      "accessCount": 6,
+      "lastAccessed": 1776260479486,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/BoxListPage.ts",
+      "accessCount": 6,
+      "lastAccessed": 1776260480571,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 6,
+      "lastAccessed": 1776263521393,
+      "type": "file"
+    },
+    {
+      "path": "e2e/fixtures/test.ts",
+      "accessCount": 6,
+      "lastAccessed": 1776263521982,
+      "type": "file"
+    },
+    {
+      "path": "e2e/auth.setup.ts",
+      "accessCount": 5,
+      "lastAccessed": 1776263383395,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/layout.spec.ts",
+      "accessCount": 5,
+      "lastAccessed": 1776263445283,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/alarm-realtime.spec.ts",
+      "accessCount": 5,
+      "lastAccessed": 1776263448297,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/DashboardPage.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776257215322,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/system-users.spec.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776258182057,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/RoleManagePage.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776260481555,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/RuleConfigPage.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776260482298,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/system-general.spec.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776263397746,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/system-thresholds.spec.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776263398627,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/system-rules.spec.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776263399559,
+      "type": "file"
+    },
+    {
+      "path": "e2e/docker-compose.test.yml",
+      "accessCount": 4,
+      "lastAccessed": 1776263414290,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/GeneralConfigPage.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776263415226,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/ThresholdConfigPage.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776263416254,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/device-boxes.spec.ts",
+      "accessCount": 4,
+      "lastAccessed": 1776263417158,
+      "type": "file"
+    },
+    {
+      "path": "e2e/README.md",
+      "accessCount": 4,
+      "lastAccessed": 1776336418174,
+      "type": "file"
+    },
+    {
+      "path": "src/api/device.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776257923066,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/login.spec.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258180852,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/dashboard.spec.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258181413,
+      "type": "file"
+    },
+    {
+      "path": "e2e/utils/element-plus.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258190142,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/report-pdi.spec.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258190813,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/system-roles.spec.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258191518,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/device-channels.spec.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258195149,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/system-logs.spec.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258196410,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs/alarm-history.spec.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258200268,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/OperationLogPage.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258206586,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/LayoutPage.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258210290,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/RealtimeAlarmPage.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258211650,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects/HistoryAlarmPage.ts",
+      "accessCount": 3,
+      "lastAccessed": 1776258211690,
+      "type": "file"
+    },
+    {
+      "path": "e2e/page-objects",
+      "accessCount": 3,
+      "lastAccessed": 1776260312979,
+      "type": "directory"
+    },
+    {
+      "path": "tsconfig.json",
+      "accessCount": 3,
+      "lastAccessed": 1776263305585,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.node.json",
+      "accessCount": 2,
+      "lastAccessed": 1776263318613,
+      "type": "file"
+    },
+    {
+      "path": "e2e/specs",
+      "accessCount": 1,
+      "lastAccessed": 1776257245073,
+      "type": "directory"
+    },
+    {
+      "path": "vite.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1776257255045,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

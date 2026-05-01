@@ -1,0 +1,24 @@
+[   16580ms] [WARNING] {password: Array(1)} @ http://localhost:5173/node_modules/.vite/deps/element-plus.js?v=cda49d6d:10429
+[   16720ms] [WARNING] [Vue warn]: Unhandled error during execution of component event handler 
+  at <ElButton type="primary" class="login-btn" loading=false  ... > 
+  at <ElFormItem> 
+  at <ElForm model= {username: wrongpasswordadmin, password: admin123} rules= {username: Array(1), password: Array(1)} ref="formRef"  ... > 
+  at <ElCard class="login-card" shadow="always" > 
+  at <LoginView onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy(Object) > > 
+  at <RouterView> 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/chunk-D4VKVKNE.js?v=37239ec8:2203
+[   16721ms] TypeError: Cannot read properties of null (reading 'accessToken')
+    at Proxy.login (http://localhost:5173/src/stores/auth.ts:14:25)
+    at async handleLogin (http://localhost:5173/src/views/LoginView.vue:25:18)
+[   16898ms] [WARNING] [Vue warn]: Unhandled error during execution of component event handler 
+  at <ElButton type="primary" class="login-btn" loading=false  ... > 
+  at <ElFormItem> 
+  at <ElForm model= {username: wrongpasswordadmin, password: admin123} rules= {username: Array(1), password: Array(1)} ref="formRef"  ... > 
+  at <ElCard class="login-card" shadow="always" > 
+  at <LoginView onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy(Object) > > 
+  at <RouterView> 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/chunk-D4VKVKNE.js?v=37239ec8:2203
+[   16899ms] TypeError: Cannot read properties of null (reading 'accessToken')
+    at Proxy.login (http://localhost:5173/src/stores/auth.ts:14:25)
+    at async handleLogin (http://localhost:5173/src/views/LoginView.vue:25:18)
+[   30852ms] [WARNING] [Vue Router warn]: No match found for location with path "/config/rule" @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=5e4d3e9c:51

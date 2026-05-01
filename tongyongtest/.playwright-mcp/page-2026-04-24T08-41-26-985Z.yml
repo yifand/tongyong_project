@@ -1,0 +1,103 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "设备监控" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e31]: 设备监控
+      - menuitem "盒子管理" [ref=e32] [cursor=pointer]:
+        - img [ref=e34]
+        - generic [ref=e38]: 盒子管理
+      - menuitem "通道管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 通道管理
+      - menuitem "用户管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 用户管理
+      - menuitem "角色管理" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e53]: 角色管理
+      - menuitem "规则配置" [ref=e54] [cursor=pointer]:
+        - img [ref=e56]
+        - generic [ref=e61]: 规则配置
+      - menuitem "阈值配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 阈值配置
+      - menuitem "通用配置" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 通用配置
+      - menuitem "操作日志" [ref=e72] [cursor=pointer]:
+        - img [ref=e74]
+        - generic [ref=e76]: 操作日志
+  - generic [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79] [cursor=pointer]:
+        - img [ref=e82]
+        - generic [ref=e84]: 实时预警
+      - button "退出" [ref=e86] [cursor=pointer]:
+        - generic [ref=e87]: 退出
+    - main [ref=e88]:
+      - generic [ref=e90]:
+        - generic [ref=e92]: 操作日志
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - generic [ref=e96]: 操作类型
+              - generic [ref=e99] [cursor=pointer]:
+                - generic:
+                  - combobox "操作类型" [ref=e101]
+                  - generic [ref=e102]: 全部
+                - img [ref=e105]
+            - generic [ref=e107]:
+              - generic [ref=e108]: 时间
+              - generic [ref=e110]:
+                - img [ref=e112]
+                - combobox "时间" [ref=e116]
+                - generic [ref=e117]: 至
+                - combobox "结束" [ref=e118]
+            - button "查询" [ref=e121] [cursor=pointer]:
+              - generic [ref=e122]: 查询
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - table [ref=e126]:
+                - rowgroup [ref=e134]:
+                  - row "操作时间 操作用户 IP地址 操作类型 操作内容 结果" [ref=e135]:
+                    - columnheader "操作时间" [ref=e136]:
+                      - generic [ref=e137]: 操作时间
+                    - columnheader "操作用户" [ref=e138]:
+                      - generic [ref=e139]: 操作用户
+                    - columnheader "IP地址" [ref=e140]:
+                      - generic [ref=e141]: IP地址
+                    - columnheader "操作类型" [ref=e142]:
+                      - generic [ref=e143]: 操作类型
+                    - columnheader "操作内容" [ref=e144]:
+                      - generic [ref=e145]: 操作内容
+                    - columnheader "结果" [ref=e146]:
+                      - generic [ref=e147]: 结果
+              - generic [ref=e151]:
+                - table:
+                  - rowgroup
+                - generic [ref=e153]: No Data
+            - img [ref=e156]
+          - generic [ref=e158]:
+            - generic [ref=e159]: Total 0
+            - button "Go to previous page" [disabled] [ref=e160]:
+              - generic:
+                - img
+            - list [ref=e161]:
+              - listitem "page 1" [ref=e162]: "1"
+            - button "Go to next page" [disabled] [ref=e163]:
+              - generic:
+                - img

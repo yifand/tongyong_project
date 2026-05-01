@@ -1,6 +1,9 @@
 package com.vdc.pdi.auth.domain.entity;
 
+import com.vdc.pdi.common.entity.BaseEntity;
 import jakarta.persistence.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,11 +13,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "sys_user")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@EntityListeners(AuditingEntityListener.class)
+public class User extends BaseEntity {
 
     @Column(name = "username", nullable = false, unique = true, length = 50)
     private String username;
@@ -22,8 +22,8 @@ public class User {
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
-    @Column(name = "real_name", length = 50)
-    private String realName;
+    @Column(name = "name", length = 50)
+    private String name;
 
     @Column(name = "email", length = 100)
     private String email;
@@ -49,51 +49,25 @@ public class User {
     @Column(name = "login_lock_time")
     private LocalDateTime loginLockTime;
 
-    @Column(name = "last_login_time")
-    private LocalDateTime lastLoginTime;
+    @Column(name = "last_login_at")
+    private LocalDateTime lastLoginAt;
 
     @Column(name = "last_login_ip", length = 50)
     private String lastLoginIp;
 
-    @Column(name = "create_time")
-    private LocalDateTime createTime;
-
-    @Column(name = "update_time")
-    private LocalDateTime updateTime;
-
-    @Column(name = "create_by")
-    private Long createBy;
-
     @Column(name = "update_by")
     private Long updateBy;
-
-    @Column(name = "deleted")
-    private Boolean deleted = false;
-
-    @Column(name = "site_id")
-    private Long siteId;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
 
-    @PrePersist
-    public void prePersist() {
-        this.createTime = LocalDateTime.now();
-        this.updateTime = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        this.updateTime = LocalDateTime.now();
-    }
-
     // Getters and Setters
     public Long getId() {
-        return id;
+        return super.getId();
     }
 
     public void setId(Long id) {
-        this.id = id;
+        super.setId(id);
     }
 
     public String getUsername() {
@@ -112,12 +86,28 @@ public class User {
         this.password = password;
     }
 
-    public String getRealName() {
-        return realName;
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @deprecated 使用 {@link #getName()} 替代
+     */
+    @Deprecated
+    public String getRealName() {
+        return getName();
+    }
+
+    /**
+     * @deprecated 使用 {@link #setName(String)} 替代
+     */
+    @Deprecated
     public void setRealName(String realName) {
-        this.realName = realName;
+        setName(realName);
     }
 
     public String getEmail() {
@@ -184,12 +174,28 @@ public class User {
         this.loginLockTime = loginLockTime;
     }
 
-    public LocalDateTime getLastLoginTime() {
-        return lastLoginTime;
+    public LocalDateTime getLastLoginAt() {
+        return lastLoginAt;
     }
 
+    public void setLastLoginAt(LocalDateTime lastLoginAt) {
+        this.lastLoginAt = lastLoginAt;
+    }
+
+    /**
+     * @deprecated 使用 {@link #getLastLoginAt()} 替代
+     */
+    @Deprecated
+    public LocalDateTime getLastLoginTime() {
+        return getLastLoginAt();
+    }
+
+    /**
+     * @deprecated 使用 {@link #setLastLoginAt(LocalDateTime)} 替代
+     */
+    @Deprecated
     public void setLastLoginTime(LocalDateTime lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
+        setLastLoginAt(lastLoginTime);
     }
 
     public String getLastLoginIp() {
@@ -200,44 +206,12 @@ public class User {
         this.lastLoginIp = lastLoginIp;
     }
 
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
-
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Long getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(Long createBy) {
-        this.createBy = createBy;
-    }
-
     public Long getUpdateBy() {
         return updateBy;
     }
 
     public void setUpdateBy(Long updateBy) {
         this.updateBy = updateBy;
-    }
-
-    public Boolean getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
     }
 
     public Set<UserRole> getUserRoles() {
@@ -248,11 +222,74 @@ public class User {
         this.userRoles = userRoles;
     }
 
+    /**
+     * 获取创建时间（从BaseEntity）
+     */
+    public LocalDateTime getCreatedAt() {
+        return super.getCreatedAt();
+    }
+
+    /**
+     * @deprecated 使用 {@link #getCreatedAt()} 替代
+     */
+    @Deprecated
+    public LocalDateTime getCreateTime() {
+        return getCreatedAt();
+    }
+
+    /**
+     * 获取更新时间（从BaseEntity）
+     */
+    public LocalDateTime getUpdatedAt() {
+        return super.getUpdatedAt();
+    }
+
+    /**
+     * @deprecated 使用 {@link #getUpdatedAt()} 替代
+     */
+    @Deprecated
+    public LocalDateTime getUpdateTime() {
+        return getUpdatedAt();
+    }
+
+    /**
+     * 获取删除时间（从BaseEntity）
+     */
+    public LocalDateTime getDeletedAt() {
+        return super.getDeletedAt();
+    }
+
+    /**
+     * @deprecated 使用 {@link #getDeletedAt()} 替代
+     */
+    @Deprecated
+    public Boolean getDeleted() {
+        return super.isDeleted();
+    }
+
+    /**
+     * 获取创建人（从BaseEntity）
+     */
+    public Long getCreatedBy() {
+        return super.getCreatedBy();
+    }
+
+    /**
+     * @deprecated 使用 {@link #getCreatedBy()} 替代
+     */
+    @Deprecated
+    public Long getCreateBy() {
+        return getCreatedBy();
+    }
+
+    /**
+     * 获取站点ID（从BaseEntity）
+     */
     public Long getSiteId() {
-        return siteId;
+        return super.getSiteId();
     }
 
     public void setSiteId(Long siteId) {
-        this.siteId = siteId;
+        super.setSiteId(siteId);
     }
 }

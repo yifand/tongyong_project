@@ -6,7 +6,9 @@ import java.util.List;
  * 分页结果封装类
  *
  * @param <T> 数据类型
+ * @deprecated 已废弃，请使用 {@link PageResponse} 替代
  */
+@Deprecated
 public class PageResult<T> {
 
     private List<T> list;

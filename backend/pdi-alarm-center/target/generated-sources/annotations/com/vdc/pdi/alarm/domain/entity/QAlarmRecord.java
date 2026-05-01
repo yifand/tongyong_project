@@ -51,8 +51,7 @@ public class QAlarmRecord extends EntityPathBase<AlarmRecord> {
 
     public final StringPath sceneImageUrl = createString("sceneImageUrl");
 
-    //inherited
-    public final NumberPath<Long> siteId = _super.siteId;
+    public final NumberPath<Long> siteId = createNumber("siteId", Long.class);
 
     public final NumberPath<Integer> status = createNumber("status", Integer.class);
 

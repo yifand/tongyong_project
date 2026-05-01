@@ -403,7 +403,7 @@ class AlgorithmConfigServiceTest {
                     .thenReturn(Optional.of(config));
 
             // When
-            Integer duration = algorithmConfigService.getStandardDuration(CHANNEL_ID);
+            Integer duration = algorithmConfigService.getStandardDuration(CHANNEL_ID, ALGORITHM_TYPE);
 
             // Then
             assertNotNull(duration);

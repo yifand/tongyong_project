@@ -1,0 +1,4 @@
+[    2937ms] [WARNING] [Vue Router warn]: No match found for location with path "/device/box" @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=5e4d3e9c:51
+[    4541ms] [WARNING] [Vue Router warn]: No match found for location with path "/device/channel" @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=5e4d3e9c:51
+[   10948ms] [WARNING] [Vue Router warn]: No match found for location with path "/system/threshold" @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=5e4d3e9c:51
+[   12553ms] [WARNING] [Vue Router warn]: No match found for location with path "/system/config" @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=5e4d3e9c:51

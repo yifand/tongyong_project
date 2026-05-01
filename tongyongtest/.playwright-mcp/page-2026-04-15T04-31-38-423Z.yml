@@ -1,0 +1,53 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "盒子管理" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e33]: 盒子管理
+      - menuitem "通道管理" [ref=e34] [cursor=pointer]:
+        - img [ref=e36]
+        - generic [ref=e38]: 通道管理
+      - menuitem "用户管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 用户管理
+      - menuitem "角色管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 角色管理
+      - menuitem "规则配置" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e56]: 规则配置
+      - menuitem "阈值配置" [ref=e57] [cursor=pointer]:
+        - img [ref=e59]
+        - generic [ref=e61]: 阈值配置
+      - menuitem "通用配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 通用配置
+      - menuitem "操作日志" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 操作日志
+  - generic [ref=e72]:
+    - generic [ref=e73]:
+      - generic [ref=e74] [cursor=pointer]:
+        - img [ref=e77]
+        - generic [ref=e79]: 实时预警
+      - button "退出" [ref=e81] [cursor=pointer]:
+        - generic [ref=e82]: 退出
+    - main [ref=e83]:
+      - generic [ref=e85]:
+        - generic [ref=e87]: 阈值配置
+        - generic [ref=e89]:
+          - img [ref=e91]
+          - paragraph [ref=e108]: 暂无阈值配置项

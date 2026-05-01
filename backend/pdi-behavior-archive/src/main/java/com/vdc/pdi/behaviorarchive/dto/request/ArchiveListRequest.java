@@ -2,6 +2,7 @@ package com.vdc.pdi.behaviorarchive.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.Data;
@@ -24,11 +25,11 @@ public class ArchiveListRequest {
     private Integer status;
 
     @Schema(description = "开始时间-起始")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startTimeFrom;
 
     @Schema(description = "开始时间-结束")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startTimeTo;
 
     @Schema(description = "通道ID")

@@ -48,6 +48,8 @@
         <module>pdi-algorithm-inlet</module>
         <module>pdi-behavior-archive</module>
         <module>pdi-alarm-center</module>
+        <module>pdi-log-management</module>
+        <module>pdi-start</module>
     </modules>
 
     <dependencyManagement>

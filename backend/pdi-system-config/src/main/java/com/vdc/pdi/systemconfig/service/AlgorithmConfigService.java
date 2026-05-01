@@ -65,9 +65,10 @@ public interface AlgorithmConfigService {
      * 获取标准工时（供规则引擎调用，PDI算法专用）
      *
      * @param channelId 通道ID
+     * @param algorithmType 算法类型（PDI_LEFT_FRONT/PDI_LEFT_REAR/PDI_SLIDE）
      * @return 标准工时（秒）
      */
-    Integer getStandardDuration(Long channelId);
+    Integer getStandardDuration(Long channelId, String algorithmType);
 
     /**
      * 获取人员消失超时阈值

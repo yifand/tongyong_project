@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -38,35 +39,35 @@ public class RoleServiceImpl implements RoleService {
     @Override
     @Transactional(readOnly = true)
     public Role getRoleByCode(String roleCode) {
-        return roleRepository.findByRoleCodeAndNotDeleted(roleCode)
+        return roleRepository.findByCodeAndNotDeleted(roleCode)
                 .orElseThrow(() -> new RuntimeException("Role not found with code: " + roleCode));
     }
 
     @Override
     @Transactional(readOnly = true)
     public Page<Role> getRoles(Pageable pageable) {
-        return roleRepository.findByDeletedFalse(pageable);
+        return roleRepository.findByDeletedAtIsNull(pageable);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<Role> getAllActiveRoles() {
-        return roleRepository.findByStatusAndDeletedFalse(1);
+        return roleRepository.findByStatusAndDeletedAtIsNull(1);
     }
 
     @Override
     @Transactional
     public Role createRole(Role role) {
         // 检查角色编码是否已存在
-        if (roleRepository.existsByRoleCode(role.getRoleCode())) {
+        if (roleRepository.existsByCode(role.getCode())) {
             throw new RuntimeException("Role code already exists");
         }
 
         role.setStatus(1);
-        role.setDeleted(false);
+        role.setDeletedAt(null);
 
         Role savedRole = roleRepository.save(role);
-        logger.info("Role created: {}", savedRole.getRoleCode());
+        logger.info("Role created: {}", savedRole.getCode());
         return savedRole;
     }
 
@@ -77,20 +78,20 @@ public class RoleServiceImpl implements RoleService {
                 .orElseThrow(() -> new RuntimeException("Role not found with id: " + id));
 
         // 检查角色编码是否被其他角色使用
-        if (!existingRole.getRoleCode().equals(role.getRoleCode())) {
-            if (roleRepository.existsByRoleCode(role.getRoleCode())) {
+        if (!existingRole.getCode().equals(role.getCode())) {
+            if (roleRepository.existsByCode(role.getCode())) {
                 throw new RuntimeException("Role code already exists");
             }
         }
 
-        existingRole.setRoleName(role.getRoleName());
-        existingRole.setRoleCode(role.getRoleCode());
+        existingRole.setName(role.getName());
+        existingRole.setCode(role.getCode());
         existingRole.setDescription(role.getDescription());
         existingRole.setSortOrder(role.getSortOrder());
         existingRole.setDataScope(role.getDataScope());
 
         Role updatedRole = roleRepository.save(existingRole);
-        logger.info("Role updated: {}", updatedRole.getRoleCode());
+        logger.info("Role updated: {}", updatedRole.getCode());
         return updatedRole;
     }
 
@@ -104,10 +105,10 @@ public class RoleServiceImpl implements RoleService {
         userRoleRepository.deleteByRoleId(id);
 
         // 逻辑删除角色
-        role.setDeleted(true);
+        role.setDeletedAt(LocalDateTime.now());
         roleRepository.save(role);
 
-        logger.info("Role deleted: {}", role.getRoleCode());
+        logger.info("Role deleted: {}", role.getCode());
     }
 
     @Override
@@ -125,13 +126,13 @@ public class RoleServiceImpl implements RoleService {
                 .orElseThrow(() -> new RuntimeException("Role not found with id: " + id));
         role.setStatus(status);
         roleRepository.save(role);
-        logger.info("Role {} status updated to: {}", role.getRoleCode(), status);
+        logger.info("Role {} status updated to: {}", role.getCode(), status);
     }
 
     @Override
     @Transactional(readOnly = true)
     public boolean existsByRoleCode(String roleCode) {
-        return roleRepository.existsByRoleCode(roleCode);
+        return roleRepository.existsByCode(roleCode);
     }
 
     @Override

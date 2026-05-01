@@ -1,0 +1,152 @@
+- generic [ref=e33]:
+  - complementary [ref=e34]:
+    - generic [ref=e35]: VDC 业务平台
+    - menubar [ref=e36]:
+      - menuitem "首页" [ref=e37] [cursor=pointer]:
+        - img [ref=e39]
+        - generic [ref=e41]: 首页
+      - menuitem "实时预警" [ref=e42] [cursor=pointer]:
+        - img [ref=e44]
+        - generic [ref=e46]: 实时预警
+      - menuitem "历史预警" [ref=e47] [cursor=pointer]:
+        - img [ref=e49]
+        - generic [ref=e51]: 历史预警
+      - menuitem "PDI报表" [ref=e52] [cursor=pointer]:
+        - img [ref=e54]
+        - generic [ref=e56]: PDI报表
+      - menuitem "设备监控" [ref=e57] [cursor=pointer]:
+        - img [ref=e59]
+        - generic [ref=e61]: 设备监控
+      - menuitem "盒子管理" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e68]: 盒子管理
+      - menuitem "通道管理" [ref=e69] [cursor=pointer]:
+        - img [ref=e71]
+        - generic [ref=e73]: 通道管理
+      - menuitem "用户管理" [ref=e74] [cursor=pointer]:
+        - img [ref=e76]
+        - generic [ref=e78]: 用户管理
+      - menuitem "角色管理" [ref=e79] [cursor=pointer]:
+        - img [ref=e81]
+        - generic [ref=e83]: 角色管理
+      - menuitem "规则配置" [ref=e84] [cursor=pointer]:
+        - img [ref=e86]
+        - generic [ref=e91]: 规则配置
+      - menuitem "阈值配置" [ref=e92] [cursor=pointer]:
+        - img [ref=e94]
+        - generic [ref=e96]: 阈值配置
+      - menuitem "通用配置" [ref=e97] [cursor=pointer]:
+        - img [ref=e99]
+        - generic [ref=e101]: 通用配置
+      - menuitem "操作日志" [ref=e102] [cursor=pointer]:
+        - img [ref=e104]
+        - generic [ref=e106]: 操作日志
+  - generic [ref=e107]:
+    - generic [ref=e108]:
+      - generic [ref=e109] [cursor=pointer]:
+        - img [ref=e112]
+        - generic [ref=e114]: 实时预警
+      - generic [ref=e115]:
+        - generic [ref=e116]: admin
+        - button "退出" [ref=e117] [cursor=pointer]:
+          - generic [ref=e118]: 退出
+    - main [ref=e119]:
+      - generic [ref=e160]:
+        - generic [ref=e161]:
+          - generic [ref=e163]: PDI 作业报表
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - generic [ref=e166]:
+                - generic [ref=e167]: 站点
+                - generic [ref=e170] [cursor=pointer]:
+                  - generic:
+                    - combobox "站点" [ref=e172]
+                    - generic [ref=e173]: 全部
+                  - img [ref=e176]
+              - generic [ref=e178]:
+                - generic [ref=e179]: 工位
+                - generic [ref=e182] [cursor=pointer]:
+                  - generic:
+                    - combobox "工位" [ref=e184]
+                    - generic [ref=e185]: 全部
+                  - img [ref=e188]
+              - generic [ref=e190]:
+                - generic [ref=e191]: 结果
+                - generic [ref=e194] [cursor=pointer]:
+                  - generic:
+                    - combobox "结果" [ref=e196]
+                    - generic [ref=e197]: 全部
+                  - img [ref=e200]
+              - generic [ref=e202]:
+                - generic [ref=e203]: 时间
+                - generic [ref=e205]:
+                  - img [ref=e207]
+                  - combobox "时间" [ref=e211]
+                  - generic [ref=e212]: 至
+                  - combobox "结束" [ref=e213]
+              - generic [ref=e215]:
+                - button "查询" [ref=e216] [cursor=pointer]:
+                  - generic [ref=e217]: 查询
+                - button "导出" [ref=e218] [cursor=pointer]:
+                  - generic [ref=e219]: 导出
+            - generic [ref=e221]:
+              - table [ref=e223]:
+                - rowgroup [ref=e235]:
+                  - row "站点 工位 车辆信息 开始时间 结束时间 实际时长 标准工时 偏差 判定结果 操作" [ref=e236]:
+                    - columnheader "站点" [ref=e237]:
+                      - generic [ref=e238]: 站点
+                    - columnheader "工位" [ref=e239]:
+                      - generic [ref=e240]: 工位
+                    - columnheader "车辆信息" [ref=e241]:
+                      - generic [ref=e242]: 车辆信息
+                    - columnheader "开始时间" [ref=e243]:
+                      - generic [ref=e244]: 开始时间
+                    - columnheader "结束时间" [ref=e245]:
+                      - generic [ref=e246]: 结束时间
+                    - columnheader "实际时长" [ref=e247]:
+                      - generic [ref=e248]: 实际时长
+                    - columnheader "标准工时" [ref=e249]:
+                      - generic [ref=e250]: 标准工时
+                    - columnheader "偏差" [ref=e251]:
+                      - generic [ref=e252]: 偏差
+                    - columnheader "判定结果" [ref=e253]:
+                      - generic [ref=e254]: 判定结果
+                    - columnheader "操作" [ref=e255]:
+                      - generic [ref=e256]: 操作
+              - generic [ref=e260]:
+                - table:
+                  - rowgroup
+                - generic [ref=e262]: No Data
+            - generic [ref=e263]:
+              - generic [ref=e264]: Total 0
+              - button "Go to previous page" [disabled] [ref=e265]:
+                - generic:
+                  - img
+              - list [ref=e266]:
+                - listitem "page 1" [ref=e267]: "1"
+              - button "Go to next page" [disabled] [ref=e268]:
+                - generic:
+                  - img
+        - dialog "导出报表" [ref=e287]:
+          - generic [active] [ref=e288]:
+            - generic [ref=e289]:
+              - heading "导出报表" [level=2] [ref=e290]
+              - button "Close this dialog" [ref=e291] [cursor=pointer]:
+                - img [ref=e293]
+            - generic [ref=e297]:
+              - generic [ref=e298]: 导出格式
+              - radiogroup "导出格式" [ref=e300]:
+                - generic [ref=e301] [cursor=pointer]:
+                  - radio "Excel" [checked] [ref=e303]
+                  - generic [ref=e305]: Excel
+                - generic [ref=e306] [cursor=pointer]:
+                  - radio "PDF" [ref=e308]
+                  - generic [ref=e310]: PDF
+                - generic [ref=e311] [cursor=pointer]:
+                  - radio "ZIP (含报表+截图)" [ref=e313]
+                  - generic [ref=e315]: ZIP (含报表+截图)
+            - generic [ref=e316]:
+              - button "取消" [ref=e317] [cursor=pointer]:
+                - generic [ref=e318]: 取消
+              - button "确定" [ref=e319] [cursor=pointer]:
+                - generic [ref=e320]: 确定

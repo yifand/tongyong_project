@@ -10,6 +10,7 @@ import com.vdc.pdi.alarm.domain.entity.QAlarmRecord;
 import com.vdc.pdi.alarm.domain.vo.AlarmStatisticsVO;
 import com.vdc.pdi.common.enums.AlarmStatusEnum;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +24,7 @@ import java.util.Set;
  * 报警记录自定义查询实现
  */
 @Repository
+@Primary
 @RequiredArgsConstructor
 public class AlarmQueryRepositoryImpl implements AlarmQueryRepository {
 

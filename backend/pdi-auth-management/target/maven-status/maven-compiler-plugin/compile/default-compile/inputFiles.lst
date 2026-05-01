@@ -24,6 +24,7 @@
 /Users/apple/Desktop/设计文件/通用设计文件/tongyong_project/backend/pdi-auth-management/src/main/java/com/vdc/pdi/auth/dto/response/RoleResponse.java
 /Users/apple/Desktop/设计文件/通用设计文件/tongyong_project/backend/pdi-auth-management/src/main/java/com/vdc/pdi/auth/dto/request/UpdateUserRequest.java
 /Users/apple/Desktop/设计文件/通用设计文件/tongyong_project/backend/pdi-auth-management/src/main/java/com/vdc/pdi/auth/dto/request/CreateUserRequest.java
+/Users/apple/Desktop/设计文件/通用设计文件/tongyong_project/backend/pdi-auth-management/src/main/java/com/vdc/pdi/auth/domain/entity/UserRoleId.java
 /Users/apple/Desktop/设计文件/通用设计文件/tongyong_project/backend/pdi-auth-management/src/main/java/com/vdc/pdi/auth/domain/repository/UserRoleRepository.java
 /Users/apple/Desktop/设计文件/通用设计文件/tongyong_project/backend/pdi-auth-management/src/main/java/com/vdc/pdi/auth/security/UserDetailsServiceImpl.java
 /Users/apple/Desktop/设计文件/通用设计文件/tongyong_project/backend/pdi-auth-management/src/main/java/com/vdc/pdi/auth/service/impl/AuthServiceImpl.java

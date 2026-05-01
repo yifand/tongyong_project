@@ -1,0 +1,31 @@
+[   34925ms] [WARNING] [Vue Router warn]: uncaught error during route navigation: @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=4c35bfb1:51
+[   34925ms] [ERROR] ReferenceError: global is not defined
+    at node_modules/sockjs-client/lib/utils/browser-crypto.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:9:5)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+    at node_modules/sockjs-client/lib/utils/random.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:31:18)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+    at node_modules/sockjs-client/lib/utils/event.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:59:18)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+    at node_modules/sockjs-client/lib/transport/websocket.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:1062:17)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+    at node_modules/sockjs-client/lib/transport-list.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:2631:7)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50) @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=4c35bfb1:2107
+[   34927ms] ReferenceError: global is not defined
+    at node_modules/sockjs-client/lib/utils/browser-crypto.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:9:5)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+    at node_modules/sockjs-client/lib/utils/random.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:31:18)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+    at node_modules/sockjs-client/lib/utils/event.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:59:18)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+    at node_modules/sockjs-client/lib/transport/websocket.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:1062:17)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+    at node_modules/sockjs-client/lib/transport-list.js (http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=559f357d:2631:7)
+    at __require (http://localhost:5173/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=9b9d802f:8:50)
+[   55238ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5173/@vite/client:559
+[   55240ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5173/:0
+[   59239ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5173/@vite/client:559
+[   59240ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5173/:0
+[   60245ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5173/:0
+[   61249ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5173/:0
+[   62255ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5173/:0
+[   63258ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5173/:0

@@ -1,0 +1,5 @@
+[   19593ms] [WARNING] [Vue Router warn]: No match found for location with path "/system/user" @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=5e4d3e9c:51
+[   22556ms] [WARNING] [Vue Router warn]: No match found for location with path "/config/rule" @ http://localhost:5173/node_modules/.vite/deps/vue-router.js?v=5e4d3e9c:51
+[   28061ms] [WARNING] WebSocket connection to 'ws://localhost:5173/ws/786/ttoivs3m/websocket' failed: WebSocket is closed before the connection is established. @ http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=06563f19:1092
+[   35883ms] [LOG] Found inputs: 1 @ :2
+[   35883ms] [LOG] Input 0 type: text placeholder: 用户名 @ :4

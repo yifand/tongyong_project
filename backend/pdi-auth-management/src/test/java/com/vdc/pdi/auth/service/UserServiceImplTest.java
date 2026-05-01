@@ -22,6 +22,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -65,12 +66,12 @@ class UserServiceImplTest {
         mockUser.setPassword("encodedPassword");
         mockUser.setEmail("test@example.com");
         mockUser.setStatus(1);
-        mockUser.setDeleted(false);
+        mockUser.setDeletedAt(null);  // 未删除
 
         mockRole = new Role();
         mockRole.setId(1L);
-        mockRole.setRoleCode("ADMIN");
-        mockRole.setRoleName("管理员");
+        mockRole.setCode("ADMIN");
+        mockRole.setName("管理员");
     }
 
     @Test
@@ -117,7 +118,7 @@ class UserServiceImplTest {
         // Given
         Pageable pageable = PageRequest.of(0, 10);
         Page<User> userPage = new PageImpl<>(Collections.singletonList(mockUser));
-        when(userRepository.findByDeletedFalse(pageable)).thenReturn(userPage);
+        when(userRepository.findByDeletedAtIsNull(pageable)).thenReturn(userPage);
 
         // When
         Page<UserResponse> result = userService.getUsers(pageable);
@@ -135,7 +136,7 @@ class UserServiceImplTest {
         request.setUsername("newuser");
         request.setPassword("Password123");
         request.setEmail("new@example.com");
-        request.setRealName("新用户");
+        request.setName("新用户");
 
         when(userRepository.existsByUsername("newuser")).thenReturn(false);
         when(userRepository.existsByEmail("new@example.com")).thenReturn(false);
@@ -176,7 +177,7 @@ class UserServiceImplTest {
     void updateUser_Success() {
         // Given
         UpdateUserRequest request = new UpdateUserRequest();
-        request.setRealName("Updated Name");
+        request.setName("Updated Name");
         request.setPhone("13800138000");
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(mockUser));
@@ -200,7 +201,7 @@ class UserServiceImplTest {
         userService.deleteUser(1L);
 
         // Then
-        assertTrue(mockUser.getDeleted());
+        assertNotNull(mockUser.getDeletedAt());  // 检查 deletedAt 是否被设置
         verify(userRepository).save(mockUser);
     }
 

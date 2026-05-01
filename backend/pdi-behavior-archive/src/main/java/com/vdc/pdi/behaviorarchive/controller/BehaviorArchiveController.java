@@ -40,10 +40,10 @@ public class BehaviorArchiveController {
     @GetMapping
     @Operation(summary = "档案列表查询", description = "分页查询行为档案列表，支持多种筛选条件")
     public ApiResponse<PageResult<ArchiveResponse>> listArchives(
-            @Valid @ModelAttribute ArchiveListRequest request,
-            @RequestParam(defaultValue = "1") @Min(1) int page,
-            @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size) {
+            @Valid @ModelAttribute ArchiveListRequest request) {
 
+        int page = request.getPage() != null ? request.getPage() : 1;
+        int size = request.getSize() != null ? request.getSize() : 20;
         log.debug("查询档案列表, page={}, size={}, siteId={}", page, size, request.getSiteId());
         PageResult<ArchiveResponse> result = archiveService.queryArchiveList(request, page, size);
         return ApiResponse.success(result);

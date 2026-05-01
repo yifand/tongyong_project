@@ -1,0 +1,155 @@
+# ============================================================
+# PDI智能监测平台 - 主配置文件
+# ============================================================
+
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 10
+    connection-timeout: 20000
+
+spring:
+  application:
+    name: pdi-monitor-platform
+
+  # ============================================================
+  # 数据源配置 (PostgreSQL)
+  # ============================================================
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:pdi_monitor}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: PDI-HikariPool
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 20000
+      max-lifetime: 1200000
+      connection-test-query: SELECT 1
+
+  # ============================================================
+  # JPA配置
+  # ============================================================
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: ${JPA_SHOW_SQL:false}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+
+  # ============================================================
+  # SQL初始化配置
+  # ============================================================
+  sql:
+    init:
+      mode: never  # 生产环境不执行data.sql/schema.sql
+
+  # ============================================================
+  # Jackson配置
+  # ============================================================
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+      write-null-map-values: false
+    default-property-inclusion: non_null
+
+  # ============================================================
+  # Servlet配置
+  # ============================================================
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 100MB
+
+  # ============================================================
+  # 缓存配置 (Caffeine)
+  # ============================================================
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=10m
+
+# ============================================================
+# JWT配置
+# ============================================================
+jwt:
+  secret: ${JWT_SECRET:your-256-bit-secret-key-for-jwt-signing-must-be-at-least-32-characters}
+  access-token-expiration: 7200000      # 2小时 (毫秒)
+  refresh-token-expiration: 604800000   # 7天 (毫秒)
+
+# ============================================================
+# 日志配置
+# ============================================================
+logging:
+  level:
+    root: INFO
+    com.vdc.pdi: INFO
+    org.springframework.security: WARN
+    org.springframework.web: INFO
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+# ============================================================
+# SpringDoc OpenAPI配置
+# ============================================================
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    display-request-duration: true
+  packages-to-scan: com.vdc.pdi
+
+# ============================================================
+# Actuator配置
+# ============================================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when_authorized
+      probes:
+        enabled: true
+    info:
+      enabled: true
+
+# ============================================================
+# PDI应用自定义配置
+# ============================================================
+pdi:
+  app:
+    name: PDI智能监测平台
+    version: 1.0.0
+    description: 基于Java 17 + Spring Boot 3.x + PostgreSQL 16构建的PDI作业监测平台
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:*}
+    allowed-methods: GET,POST,PUT,DELETE,OPTIONS,PATCH
+    allowed-headers: "*"
+    allow-credentials: false
+    max-age: 3600

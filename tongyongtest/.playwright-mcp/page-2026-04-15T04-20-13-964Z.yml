@@ -1,0 +1,157 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]: VDC 业务平台
+    - menubar [ref=e6]:
+      - menuitem "首页" [ref=e7] [cursor=pointer]:
+        - img [ref=e9]
+        - generic [ref=e11]: 首页
+      - menuitem "实时预警" [ref=e12] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: 实时预警
+      - menuitem "历史预警" [ref=e17] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e21]: 历史预警
+      - menuitem "PDI报表" [ref=e22] [cursor=pointer]:
+        - img [ref=e24]
+        - generic [ref=e26]: PDI报表
+      - menuitem "盒子管理" [ref=e27] [cursor=pointer]:
+        - img [ref=e29]
+        - generic [ref=e33]: 盒子管理
+      - menuitem "通道管理" [ref=e34] [cursor=pointer]:
+        - img [ref=e36]
+        - generic [ref=e38]: 通道管理
+      - menuitem "用户管理" [ref=e39] [cursor=pointer]:
+        - img [ref=e41]
+        - generic [ref=e43]: 用户管理
+      - menuitem "角色管理" [ref=e44] [cursor=pointer]:
+        - img [ref=e46]
+        - generic [ref=e48]: 角色管理
+      - menuitem "规则配置" [ref=e49] [cursor=pointer]:
+        - img [ref=e51]
+        - generic [ref=e56]: 规则配置
+      - menuitem "阈值配置" [ref=e57] [cursor=pointer]:
+        - img [ref=e59]
+        - generic [ref=e61]: 阈值配置
+      - menuitem "通用配置" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e66]: 通用配置
+      - menuitem "操作日志" [ref=e67] [cursor=pointer]:
+        - img [ref=e69]
+        - generic [ref=e71]: 操作日志
+  - generic [ref=e72]:
+    - generic [ref=e73]:
+      - generic [ref=e74] [cursor=pointer]:
+        - img [ref=e77]
+        - generic [ref=e79]: 实时预警
+      - button "退出" [ref=e81] [cursor=pointer]:
+        - generic [ref=e82]: 退出
+    - main [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e87]:
+            - generic [ref=e88]: 角色管理
+            - button "添加角色" [ref=e89] [cursor=pointer]:
+              - generic [ref=e90]: 添加角色
+          - generic [ref=e91]:
+            - generic [ref=e93]:
+              - table [ref=e95]:
+                - rowgroup [ref=e102]:
+                  - row "角色编码 角色名称 数据权限 功能权限 操作" [ref=e103]:
+                    - columnheader "角色编码" [ref=e104]:
+                      - generic [ref=e105]: 角色编码
+                    - columnheader "角色名称" [ref=e106]:
+                      - generic [ref=e107]: 角色名称
+                    - columnheader "数据权限" [ref=e108]:
+                      - generic [ref=e109]: 数据权限
+                    - columnheader "功能权限" [ref=e110]:
+                      - generic [ref=e111]: 功能权限
+                    - columnheader "操作" [ref=e112]:
+                      - generic [ref=e113]: 操作
+              - generic [ref=e117]:
+                - table:
+                  - rowgroup
+                - generic [ref=e119]: No Data
+            - generic [ref=e124]:
+              - generic [ref=e125]: Total 0
+              - button "Go to previous page" [disabled] [ref=e126]:
+                - generic:
+                  - img
+              - list [ref=e127]:
+                - listitem "page 1" [ref=e128]: "1"
+              - button "Go to next page" [disabled] [ref=e129]:
+                - generic:
+                  - img
+        - dialog "添加角色" [ref=e131]:
+          - generic [active] [ref=e132]:
+            - generic [ref=e133]:
+              - heading "添加角色" [level=2] [ref=e134]
+              - button "Close this dialog" [ref=e135] [cursor=pointer]:
+                - img [ref=e137]
+            - generic [ref=e140]:
+              - generic [ref=e141]:
+                - generic [ref=e142]: 角色编码
+                - textbox "角色编码" [ref=e146]: ADMIN
+              - generic [ref=e147]:
+                - generic [ref=e148]: 角色名称
+                - textbox "角色名称" [ref=e152]: 系统管理员
+              - generic [ref=e153]:
+                - generic [ref=e154]: 数据权限
+                - radiogroup "数据权限" [ref=e156]:
+                  - generic [ref=e157] [cursor=pointer]:
+                    - radio "全部站点" [ref=e159]
+                    - generic [ref=e161]: 全部站点
+                  - generic [ref=e162] [cursor=pointer]:
+                    - radio "站点隔离" [checked] [ref=e164]
+                    - generic [ref=e166]: 站点隔离
+              - generic [ref=e167]:
+                - generic [ref=e168]: 功能权限
+                - group "功能权限" [ref=e170]:
+                  - generic [ref=e171] [cursor=pointer]:
+                    - generic [ref=e172]:
+                      - checkbox "用户查看"
+                    - generic [ref=e174]: 用户查看
+                  - generic [ref=e175] [cursor=pointer]:
+                    - generic [ref=e176]:
+                      - checkbox "用户管理"
+                    - generic [ref=e178]: 用户管理
+                  - generic [ref=e179] [cursor=pointer]:
+                    - generic [ref=e180]:
+                      - checkbox "角色查看"
+                    - generic [ref=e182]: 角色查看
+                  - generic [ref=e183] [cursor=pointer]:
+                    - generic [ref=e184]:
+                      - checkbox "角色管理"
+                    - generic [ref=e186]: 角色管理
+                  - generic [ref=e187] [cursor=pointer]:
+                    - generic [ref=e188]:
+                      - checkbox "预警查看"
+                    - generic [ref=e190]: 预警查看
+                  - generic [ref=e191] [cursor=pointer]:
+                    - generic [ref=e192]:
+                      - checkbox "预警处理"
+                    - generic [ref=e194]: 预警处理
+                  - generic [ref=e195] [cursor=pointer]:
+                    - generic [ref=e196]:
+                      - checkbox "报表查看"
+                    - generic [ref=e198]: 报表查看
+                  - generic [ref=e199] [cursor=pointer]:
+                    - generic [ref=e200]:
+                      - checkbox "设备查看"
+                    - generic [ref=e202]: 设备查看
+                  - generic [ref=e203] [cursor=pointer]:
+                    - generic [ref=e204]:
+                      - checkbox "设备管理"
+                    - generic [ref=e206]: 设备管理
+                  - generic [ref=e207] [cursor=pointer]:
+                    - generic [ref=e208]:
+                      - checkbox "配置查看"
+                    - generic [ref=e210]: 配置查看
+                  - generic [ref=e211] [cursor=pointer]:
+                    - generic [ref=e212]:
+                      - checkbox "配置管理"
+                    - generic [ref=e214]: 配置管理
+            - generic [ref=e215]:
+              - button "取消" [ref=e216] [cursor=pointer]:
+                - generic [ref=e217]: 取消
+              - button "确定" [ref=e218] [cursor=pointer]:
+                - generic [ref=e219]: 确定

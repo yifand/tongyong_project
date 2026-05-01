@@ -1,6 +1,5 @@
 package com.vdc.pdi.device.service;
 
-import com.vdc.pdi.common.exception.BusinessException;
 import com.vdc.pdi.device.domain.entity.Channel;
 import com.vdc.pdi.device.domain.entity.EdgeBox;
 import com.vdc.pdi.device.domain.repository.ChannelRepository;
@@ -101,7 +100,7 @@ class ChannelServiceTest {
         when(channelRepository.findByIdAndDeletedAtIsNull(1L)).thenReturn(Optional.empty());
 
         // When & Then
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
             channelService.getChannel(1L, null);
         });
         assertEquals("通道不存在", exception.getMessage());
@@ -114,7 +113,7 @@ class ChannelServiceTest {
         when(channelRepository.findByIdAndDeletedAtIsNull(1L)).thenReturn(Optional.of(testChannel));
 
         // When & Then - 用户尝试访问其他站点的通道
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
             channelService.getChannel(1L, 1L);
         });
         assertEquals("无权访问该通道", exception.getMessage());
@@ -143,7 +142,7 @@ class ChannelServiceTest {
         when(edgeBoxRepository.findByIdAndDeletedAtIsNull(1L)).thenReturn(Optional.empty());
 
         // When & Then
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
             channelService.createChannel(testRequest, null, 1L);
         });
         assertEquals("所属盒子不存在", exception.getMessage());

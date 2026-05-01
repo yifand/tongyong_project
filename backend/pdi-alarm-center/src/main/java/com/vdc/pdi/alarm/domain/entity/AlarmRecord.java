@@ -25,6 +25,12 @@ public class AlarmRecord extends BaseEntity {
     private Integer type;
 
     /**
+     * 站点ID
+     */
+    @Column(name = "site_id", nullable = false)
+    private Long siteId;
+
+    /**
      * 通道ID
      */
     @Column(name = "channel_id", nullable = false)

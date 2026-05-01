@@ -1,0 +1,62 @@
+- generic [ref=e33]:
+  - complementary [ref=e34]:
+    - generic [ref=e35]: VDC 业务平台
+    - menubar [ref=e36]:
+      - menuitem "首页" [ref=e37] [cursor=pointer]:
+        - img [ref=e39]
+        - generic [ref=e41]: 首页
+      - menuitem "实时预警" [active] [ref=e42] [cursor=pointer]:
+        - img [ref=e44]
+        - generic [ref=e46]: 实时预警
+      - menuitem "历史预警" [ref=e47] [cursor=pointer]:
+        - img [ref=e49]
+        - generic [ref=e51]: 历史预警
+      - menuitem "PDI报表" [ref=e52] [cursor=pointer]:
+        - img [ref=e54]
+        - generic [ref=e56]: PDI报表
+      - menuitem "设备监控" [ref=e57] [cursor=pointer]:
+        - img [ref=e59]
+        - generic [ref=e61]: 设备监控
+      - menuitem "盒子管理" [ref=e62] [cursor=pointer]:
+        - img [ref=e64]
+        - generic [ref=e68]: 盒子管理
+      - menuitem "通道管理" [ref=e69] [cursor=pointer]:
+        - img [ref=e71]
+        - generic [ref=e73]: 通道管理
+      - menuitem "用户管理" [ref=e74] [cursor=pointer]:
+        - img [ref=e76]
+        - generic [ref=e78]: 用户管理
+      - menuitem "角色管理" [ref=e79] [cursor=pointer]:
+        - img [ref=e81]
+        - generic [ref=e83]: 角色管理
+      - menuitem "规则配置" [ref=e84] [cursor=pointer]:
+        - img [ref=e86]
+        - generic [ref=e91]: 规则配置
+      - menuitem "阈值配置" [ref=e92] [cursor=pointer]:
+        - img [ref=e94]
+        - generic [ref=e96]: 阈值配置
+      - menuitem "通用配置" [ref=e97] [cursor=pointer]:
+        - img [ref=e99]
+        - generic [ref=e101]: 通用配置
+      - menuitem "操作日志" [ref=e102] [cursor=pointer]:
+        - img [ref=e104]
+        - generic [ref=e106]: 操作日志
+  - generic [ref=e107]:
+    - generic [ref=e108]:
+      - generic [ref=e109] [cursor=pointer]:
+        - img [ref=e112]
+        - generic [ref=e114]: 实时预警
+      - generic [ref=e115]:
+        - generic [ref=e116]: admin
+        - button "退出" [ref=e117] [cursor=pointer]:
+          - generic [ref=e118]: 退出
+    - main [ref=e119]:
+      - generic [ref=e161]:
+        - generic [ref=e163]:
+          - generic [ref=e164]: 实时预警
+          - generic [ref=e165]:
+            - switch
+            - generic [ref=e169] [cursor=pointer]: 声音提示
+        - generic [ref=e171]:
+          - img [ref=e173]
+          - paragraph [ref=e190]: 暂无实时报警

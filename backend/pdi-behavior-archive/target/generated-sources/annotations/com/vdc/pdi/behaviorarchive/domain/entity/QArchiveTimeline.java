@@ -19,35 +19,25 @@ public class QArchiveTimeline extends EntityPathBase<ArchiveTimeline> {
 
     public static final QArchiveTimeline archiveTimeline = new QArchiveTimeline("archiveTimeline");
 
-    public final com.vdc.pdi.common.entity.QBaseEntity _super = new com.vdc.pdi.common.entity.QBaseEntity(this);
-
     public final StringPath action = createString("action");
 
     public final NumberPath<Long> archiveId = createNumber("archiveId", Long.class);
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
-    //inherited
-    public final NumberPath<Long> createdBy = _super.createdBy;
+    public final NumberPath<Long> createdBy = createNumber("createdBy", Long.class);
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> deletedAt = _super.deletedAt;
+    public final DateTimePath<java.time.LocalDateTime> deletedAt = createDateTime("deletedAt", java.time.LocalDateTime.class);
 
     public final DateTimePath<java.time.LocalDateTime> eventTime = createDateTime("eventTime", java.time.LocalDateTime.class);
 
-    //inherited
-    public final NumberPath<Long> id = _super.id;
+    public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath imageUrl = createString("imageUrl");
 
     public final NumberPath<Integer> seq = createNumber("seq", Integer.class);
 
-    //inherited
-    public final NumberPath<Long> siteId = _super.siteId;
-
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> updatedAt = _super.updatedAt;
+    public final DateTimePath<java.time.LocalDateTime> updatedAt = createDateTime("updatedAt", java.time.LocalDateTime.class);
 
     public QArchiveTimeline(String variable) {
         super(ArchiveTimeline.class, forVariable(variable));

@@ -1,0 +1,1 @@
+[     161ms] [WARNING] WebSocket connection to 'ws://localhost:5173/ws/244/gith5gfc/websocket' failed: WebSocket is closed before the connection is established. @ http://localhost:5173/node_modules/.vite/deps/sockjs-client.js?v=06563f19:1092

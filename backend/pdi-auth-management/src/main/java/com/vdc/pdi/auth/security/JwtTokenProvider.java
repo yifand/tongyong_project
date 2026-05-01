@@ -2,12 +2,14 @@ package com.vdc.pdi.auth.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
@@ -24,13 +26,13 @@ public class JwtTokenProvider {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
 
-    @Value("${jwt.secret:mySecretKey}")
+    @Value("${jwt.secret:${JWT_SECRET:mySecretKey}}")
     private String jwtSecret;
 
-    @Value("${jwt.expiration:86400000}")
-    private long jwtExpiration; // 默认24小时
+    @Value("${jwt.access-token-expiration:${jwt.expiration:86400000}}")
+    private long accessTokenExpiration; // 默认24小时
 
-    @Value("${jwt.refresh-expiration:604800000}")
+    @Value("${jwt.refresh-token-expiration:${jwt.refresh-expiration:604800000}}")
     private long refreshExpiration; // 默认7天
 
     /**
@@ -81,21 +83,30 @@ public class JwtTokenProvider {
     }
 
     /**
-     * 生成Token
+     * 生成Access Token（带额外声明）
      */
-    public String generateToken(UserDetails userDetails) {
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("type", "access");
-        return createToken(claims, userDetails.getUsername(), jwtExpiration);
+    public String generateAccessToken(String username, Map<String, Object> extraClaims) {
+        Map<String, Object> claims = new HashMap<>(extraClaims);
+        claims.put("type", "ACCESS");
+        return createToken(claims, username, accessTokenExpiration);
     }
 
     /**
-     * 生成Token（带额外声明）
+     * 生成Access Token（根据UserDetails）
+     */
+    public String generateToken(UserDetails userDetails) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("type", "ACCESS");
+        return createToken(claims, userDetails.getUsername(), accessTokenExpiration);
+    }
+
+    /**
+     * 生成Access Token（带额外声明）
      */
     public String generateToken(UserDetails userDetails, Map<String, Object> extraClaims) {
         Map<String, Object> claims = new HashMap<>(extraClaims);
-        claims.put("type", "access");
-        return createToken(claims, userDetails.getUsername(), jwtExpiration);
+        claims.put("type", "ACCESS");
+        return createToken(claims, userDetails.getUsername(), accessTokenExpiration);
     }
 
     /**
@@ -103,7 +114,7 @@ public class JwtTokenProvider {
      */
     public String generateRefreshToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("type", "refresh");
+        claims.put("type", "REFRESH");
         return createToken(claims, userDetails.getUsername(), refreshExpiration);
     }
 
@@ -153,6 +164,78 @@ public class JwtTokenProvider {
     }
 
     /**
+     * 从Token中获取用户ID
+     */
+    public Long getUserId(String token) {
+        try {
+            Claims claims = extractAllClaims(token);
+            Object userId = claims.get("userId");
+            if (userId instanceof Integer) {
+                return ((Integer) userId).longValue();
+            } else if (userId instanceof Long) {
+                return (Long) userId;
+            }
+            return null;
+        } catch (Exception e) {
+            logger.error("Failed to extract userId from token", e);
+            return null;
+        }
+    }
+
+    /**
+     * 从Token中获取角色
+     */
+    public String getRole(String token) {
+        try {
+            Claims claims = extractAllClaims(token);
+            return claims.get("role", String.class);
+        } catch (Exception e) {
+            logger.error("Failed to extract role from token", e);
+            return null;
+        }
+    }
+
+    /**
+     * 从Token中获取站点ID
+     */
+    public Long getSiteId(String token) {
+        try {
+            Claims claims = extractAllClaims(token);
+            Object siteId = claims.get("siteId");
+            if (siteId instanceof Integer) {
+                return ((Integer) siteId).longValue();
+            } else if (siteId instanceof Long) {
+                return (Long) siteId;
+            }
+            return null;
+        } catch (Exception e) {
+            logger.error("Failed to extract siteId from token", e);
+            return null;
+        }
+    }
+
+    /**
+     * 从请求中解析Token
+     */
+    public String resolveToken(HttpServletRequest request) {
+        String bearerToken = request.getHeader("Authorization");
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
+
+    /**
+     * 从请求头字符串中解析Token
+     */
+    public String resolveToken(String bearerToken) {
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
+
+    /**
      * 从Token中获取过期时间（毫秒）
      */
     public long getExpirationTime(String token) {
@@ -161,15 +244,7 @@ public class JwtTokenProvider {
     }
 
     /**
-     * 从认证信息生成Token
-     */
-    public String generateToken(Authentication authentication) {
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        return generateToken(userDetails);
-    }
-
-    /**
-     * 获取Token剩余有效时间
+     * 获取Token剩余有效时间（毫秒）
      */
     public long getTokenRemainingTime(String token) {
         try {
@@ -179,5 +254,20 @@ public class JwtTokenProvider {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    /**
+     * 获取Access Token过期时间（秒）
+     */
+    public long getAccessTokenExpiration() {
+        return accessTokenExpiration / 1000; // 转换为秒
+    }
+
+    /**
+     * 从认证信息生成Token
+     */
+    public String generateToken(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        return generateToken(userDetails);
     }
 }

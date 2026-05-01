@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -151,6 +152,15 @@ public class GlobalExceptionHandler {
         logger.warn("请求方法不支持 [{}]: {}", request.getRequestURI(), e.getMethod());
         return ApiResponse.error(ResultCode.METHOD_NOT_ALLOWED,
                 "不支持的请求方法: " + e.getMethod());
+    }
+
+    // ========== 权限异常 ==========
+
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ApiResponse<Void> handleAccessDeniedException(AccessDeniedException e, HttpServletRequest request) {
+        logger.warn("权限不足 [{}]: {}", request.getRequestURI(), e.getMessage());
+        return ApiResponse.error(ResultCode.FORBIDDEN, "权限不足，无法访问该资源");
     }
 
     // ========== 系统异常 ==========
